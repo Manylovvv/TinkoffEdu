@@ -10,19 +10,18 @@ public class ParserMain {
 
         AbstractLinkParser gitHubParser = new GitHubLinkParser();
         AbstractLinkParser stackOverflowParser = new StackOverflowLinkParser();
-        AbstractLinkParser vkparser = new VkLinkParser();
         AbstractLinkParser nullParser = new NullLinkParser();
 
         //chain of responsibility
         gitHubParser.setNext(stackOverflowParser);
-        stackOverflowParser.setNext(vkparser);
-        vkparser.setNext(nullParser);
+        stackOverflowParser.setNext(nullParser);
 
         String[] urls = {
                 //set links here
-                "https://github.com/explore/email",
                 "https://github.com/Manylovvv/sda",
-                "https://vk.com/im?peers=c230_391576837_86889028_c182_488238545_c59_549308564_234353917"
+                "https://github.com/sanyarnd/tinkoff-java-course-2022/",
+                "https://stackoverflow.com/questions/1642028/what-is-the-operator-in-c",
+                "https://stackoverflow.com/search?q=unsupported%20link"
         };
 
         for (String url : urls) {

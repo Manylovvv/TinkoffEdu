@@ -9,7 +9,6 @@ public final class StackOverflowLinkParser extends AbstractLinkParser implements
     public LinkData parseLink(String stack_url) {
         if (stack_url.contains(STACKOF_HOST)) {
             String[] parts = stack_url.split("/");
-            System.out.println(parts.length);
             if (parts.length >= 5) {
                 String question_id = parts[4];
                 return new StackOverflowLinkData(question_id);
