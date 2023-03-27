@@ -1,7 +1,7 @@
 package ru.tinkoff.edu.java.bot.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.tinkoff.edu.java.bot.models.LinkUpdate;
+import ru.tinkoff.edu.java.bot.model.LinkUpdate;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import ru.tinkoff.edu.java.exception.IncorrectParametersException;
-import ru.tinkoff.edu.java.response.ApiErrorResponse;
+
 import ru.tinkoff.edu.java.exception.ResourceNotFoundException;
+import ru.tinkoff.edu.java.scrapper.controller.response.ApiErrorResponse;
 
 import java.util.Arrays;
 

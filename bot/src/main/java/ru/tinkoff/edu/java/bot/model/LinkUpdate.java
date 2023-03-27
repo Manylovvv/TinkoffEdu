@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.bot.models;
+package ru.tinkoff.edu.java.bot.model;
 
 
 import java.util.List;

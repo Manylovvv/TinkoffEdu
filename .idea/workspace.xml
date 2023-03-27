@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/controller/BotController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/models/LinkUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/request/LinkUpdate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/src/main/java/ru/tinkoff/edu/java/response/ApiErrorResponse.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
     </list>
@@ -52,7 +54,7 @@
       <recent name="C:\Users\xoros\Desktop\TINKAFINAL\TinkoffEdu\common\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ScrapperApplication">
+  <component name="RunManager" selected="Application.BotApplication">
     <configuration name="BotApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.bot.BotApplication" />
       <module name="bot" />
@@ -81,8 +83,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ScrapperApplication" />
         <item itemvalue="Application.BotApplication" />
+        <item itemvalue="Application.ScrapperApplication" />
       </list>
     </recent_temporary>
   </component>

@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.response;
+package ru.tinkoff.edu.java.scrapper.controller.response;
 
 import java.util.List;
 
