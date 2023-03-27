@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

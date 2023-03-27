@@ -13,25 +13,33 @@ import java.util.Arrays;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    private ApiErrorResponse HandleOutput(String message, Exception exception) {
+    private ApiErrorResponse HandleOutput(String message, Exception exception, HttpStatus httpStatus) {
         return new ApiErrorResponse(
                 message,
-                String.valueOf(HttpStatus.NOT_FOUND.value()),
+                String.valueOf(httpStatus.value()),
                 exception.getClass().getName(),
                 exception.getMessage(),
-                Arrays.stream(exception.getStackTrace()).map(String::valueOf).toList());
+                Arrays.stream(exception.getStackTrace()).map(String::valueOf).toList()
+        );
     }
 
     @ExceptionHandler(IncorrectParametersException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleIncorrectRequest(IncorrectParametersException Exception) {
-        return HandleOutput("There are incorrect parameters in your request!", Exception);
+        return HandleOutput("There are incorrect parameters in your request!", Exception, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse handleIncorrectRequest(MethodArgumentTypeMismatchException Exception) {
-        return HandleOutput("Type mismatcht!", Exception);
+        return HandleOutput("Type mismatcht!", Exception, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ApiErrorResponse handleException(Exception Exception) {
+        return HandleOutput("Something went wrong!", Exception , HttpStatus.INTERNAL_SERVER_ERROR);
+
     }
 
 }

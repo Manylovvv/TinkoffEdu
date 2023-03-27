@@ -15,10 +15,10 @@ import java.util.Arrays;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    private ApiErrorResponse HandleOutput(String message, Exception exception) {
+    private ApiErrorResponse HandleOutput(String message, Exception exception, HttpStatus httpStatus) {
         return new ApiErrorResponse(
                 message,
-                String.valueOf(HttpStatus.NOT_FOUND.value()),
+                String.valueOf(httpStatus.value()),
                 exception.getClass().getName(),
                 exception.getMessage(),
                 Arrays.stream(exception.getStackTrace()).map(String::valueOf).toList()
@@ -28,25 +28,32 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiErrorResponse ResourceNotFoundException(ResourceNotFoundException Exception) {
-        return HandleOutput("Requested resource not found", Exception);
+        return HandleOutput("Requested resource not found", Exception, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler({IncorrectParametersException.class})
+    @ExceptionHandler(IncorrectParametersException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse IncorrectRequestParamsException(IncorrectParametersException Exception) {
-        return HandleOutput("This parameters is not correct", Exception);
+        return HandleOutput("This parameters is not correct", Exception, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler({MethodArgumentTypeMismatchException.class})
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse IncorrectParamsException(MethodArgumentTypeMismatchException Exception) {
-        return HandleOutput("This parameters is not correct", Exception);
+        return HandleOutput("This parameters is not correct", Exception, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler({MissingServletRequestParameterException.class})
+    @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ApiErrorResponse MissingServletRequestParameterException(MissingServletRequestParameterException Exception) {
-        return HandleOutput("There are missing servlet query parameters!", Exception);
+        return HandleOutput("There are missing servlet query parameters!", Exception, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ApiErrorResponse Exception(Exception Exception) {
+        return HandleOutput("Something went wrong!", Exception , HttpStatus.INTERNAL_SERVER_ERROR);
+
     }
 
 
