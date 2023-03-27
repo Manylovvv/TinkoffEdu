@@ -1,12 +1,12 @@
 package ru.tinkoff.edu.java.scrapper.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.tinkoff.edu.java.exception.IncorrectParametersException;
-import ru.tinkoff.edu.java.exception.ResourceNotFoundException;
 import ru.tinkoff.edu.java.scrapper.controller.requests.AddLinkRequest;
 import ru.tinkoff.edu.java.scrapper.controller.requests.RemoveLinkRequest;
 import ru.tinkoff.edu.java.scrapper.controller.response.LinkResponse;
 import ru.tinkoff.edu.java.scrapper.controller.response.ListLinksResponse;
+import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
+
 import java.util.*;
 
 @RestController
@@ -31,7 +31,7 @@ public class LinkController {
     public ListLinksResponse getLink(@RequestHeader ("Tg-Chat-Id") long tgChatId){
         var listLinkResponse = ListLinks.get(tgChatId);
         if (listLinkResponse != null) return listLinkResponse;
-        else throw new ResourceNotFoundException(String.format("Нет ссылок для tg-chat-id", tgChatId));
+        else throw new IllegalArgumentException(String.format("don`t exist this links for tg-chat-id", tgChatId));
     }
 
     @PostMapping
@@ -42,7 +42,7 @@ public class LinkController {
             ListLinks.put(tgChatId, new ListLinksResponse(new ArrayList<>(Arrays.asList(newLinkResponse)), 1));
         } else {
             if (listLinksResponse.links().stream().anyMatch(linkResponse -> linkResponse.url().equals(newLinkResponse.url()))) {
-                throw new IncorrectParametersException("The link you are trying to add already exists");
+                throw new IllegalArgumentException("The link you are trying to add already exists");
             } else {
                 listLinksResponse.links().add(newLinkResponse);
                 ListLinks.put(tgChatId, new ListLinksResponse(listLinksResponse.links(), listLinksResponse.size() + 1));
@@ -54,11 +54,11 @@ public class LinkController {
     @DeleteMapping
     public LinkResponse deleteLink(@RequestHeader("Tg-Chat-Id") long tgChatId, @RequestBody RemoveLinkRequest request) {
         if (!ListLinks.containsKey(tgChatId)) {
-            throw new IncorrectParametersException(String.format("There is no such tg-chat-id=[%s]", tgChatId));
+            throw new IllegalArgumentException(String.format("There is no such tg-chat-id [%s]", tgChatId));
         }
         var listLinksResponse = ListLinks.get(tgChatId);
         if (!listLinksResponse.links().removeIf(x -> x.url().equals(request.link()))) {
-            throw new IncorrectParametersException(String.format("There is no such link=[%s]", request.link()));
+            throw new ResourceNotFoundException(String.format("There is no such link [%s]", request.link()));
         } else {
             ListLinks.put(tgChatId, new ListLinksResponse(listLinksResponse.links(), listLinksResponse.size() - 1));
             return new LinkResponse(RandomValue.nextLong(), request.link());

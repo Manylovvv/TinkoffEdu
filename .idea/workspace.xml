@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/controller/BotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bot/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/models/LinkUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/request/LinkUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/build-info.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/src/main/java/ru/tinkoff/edu/java/response/ApiErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/src/main/java/ru/tinkoff/edu/java/exception/IncorrectParametersException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/general/src/main/java/ru/tinkoff/edu/java/exception/ResourceNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/LinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/LinkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/TgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/TgController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
     </list>
@@ -41,7 +50,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../TINKAUKRALFINAL/links-follower" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -68,6 +77,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParserMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.parser.ParserMain" />
+      <module name="link-parser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.tinkoff.edu.java.parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ScrapperApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.scrapper.ScrapperApplication" />
       <module name="scrapper" />
@@ -85,6 +107,7 @@
       <list>
         <item itemvalue="Application.BotApplication" />
         <item itemvalue="Application.ScrapperApplication" />
+        <item itemvalue="Application.ParserMain" />
       </list>
     </recent_temporary>
   </component>

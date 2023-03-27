@@ -1,15 +1,16 @@
 package ru.tinkoff.edu.java.scrapper.handler;
 
+import org.springdoc.api.OpenApiResourceNotFoundException;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.tinkoff.edu.java.exception.IncorrectParametersException;
-
-import ru.tinkoff.edu.java.exception.ResourceNotFoundException;
 import ru.tinkoff.edu.java.scrapper.controller.response.ApiErrorResponse;
+import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
 
 import java.util.Arrays;
 
@@ -26,15 +27,21 @@ public class ControllerExceptionHandler {
         );
     }
 
+    @ExceptionHandler(NullPointerException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse ResourceNotFoundException(NullPointerException Exception) {
+        return HandleOutput("Null!!!", Exception, HttpStatus.BAD_REQUEST);
+    }
+
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ApiErrorResponse ResourceNotFoundException(ResourceNotFoundException Exception) {
-        return HandleOutput("Requested resource not found", Exception, HttpStatus.NOT_FOUND);
+        return HandleOutput("resource not found", Exception, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(IncorrectParametersException.class)
+    @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse IncorrectRequestParamsException(IncorrectParametersException Exception) {
+    public ApiErrorResponse IncorrectRequestParamsException(IllegalArgumentException Exception) {
         return HandleOutput("This parameters is not correct", Exception, HttpStatus.BAD_REQUEST);
     }
 
@@ -44,18 +51,16 @@ public class ControllerExceptionHandler {
         return HandleOutput("This parameters is not correct", Exception, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(MissingServletRequestParameterException.class)
+    @ExceptionHandler(MissingRequestHeaderException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse MissingServletRequestParameterException(MissingServletRequestParameterException Exception) {
-        return HandleOutput("There are missing servlet query parameters!", Exception, HttpStatus.BAD_REQUEST);
+    public ApiErrorResponse IncorrectHeader(MissingRequestHeaderException Exception) {
+        return HandleOutput("Required request header 'Tg-Chat-Id' for method parameter type long is not present", Exception, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ApiErrorResponse Exception(Exception Exception) {
-        return HandleOutput("Something went wrong!", Exception , HttpStatus.INTERNAL_SERVER_ERROR);
-
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse IncorrectRequest(HttpRequestMethodNotSupportedException Exception) {
+        return HandleOutput("METOD NOT ALLOWED!", Exception, HttpStatus.BAD_REQUEST);
     }
-
 
 }

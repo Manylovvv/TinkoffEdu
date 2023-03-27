@@ -1,8 +1,8 @@
 package ru.tinkoff.edu.java.bot.handler;
 
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import ru.tinkoff.edu.java.bot.response.ApiErrorResponse;
-import ru.tinkoff.edu.java.exception.IncorrectParametersException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -23,23 +23,22 @@ public class ControllerExceptionHandler {
         );
     }
 
-    @ExceptionHandler(IncorrectParametersException.class)
+    @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse handleIncorrectRequest(IncorrectParametersException Exception) {
+    public ApiErrorResponse IllegalArgs(IllegalArgumentException Exception) {
         return HandleOutput("There are incorrect parameters in your request!", Exception, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse handleIncorrectRequest(MethodArgumentTypeMismatchException Exception) {
+    public ApiErrorResponse TypeMismatch(MethodArgumentTypeMismatchException Exception) {
         return HandleOutput("Type mismatcht!", Exception, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ApiErrorResponse handleException(Exception Exception) {
-        return HandleOutput("Something went wrong!", Exception , HttpStatus.INTERNAL_SERVER_ERROR);
-
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse IncorrectRequest(HttpRequestMethodNotSupportedException Exception) {
+        return  HandleOutput("METOD NOT ALLOWED!", Exception, HttpStatus.BAD_REQUEST);
+        //return HandleOutput("METOD NOT ALLOWED!", Exception, HttpStatus.BAD_REQUEST);
     }
-
 }
