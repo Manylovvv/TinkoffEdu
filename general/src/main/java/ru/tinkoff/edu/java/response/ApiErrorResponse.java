@@ -2,7 +2,7 @@ package ru.tinkoff.edu.java.response;
 
 import java.util.List;
 
-public record ErrorResponse(
+public record ApiErrorResponse(
         String description,
         String code,
         String exceptionName,
