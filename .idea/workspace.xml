@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bot/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/BotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/BotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/configuration/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/configuration/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring.components" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring.components" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ApplicationConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/build-info.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +35,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../TINKAUKRALFINAL/links-follower" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
