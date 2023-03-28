@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.bot.response;
+package ru.tinkoff.edu.java.bot.schemas.response;
 
 import java.util.List;
 

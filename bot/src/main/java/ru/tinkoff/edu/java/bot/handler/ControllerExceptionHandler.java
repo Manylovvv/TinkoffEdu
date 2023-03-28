@@ -2,7 +2,7 @@ package ru.tinkoff.edu.java.bot.handler;
 
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.tinkoff.edu.java.bot.response.ApiErrorResponse;
+import ru.tinkoff.edu.java.bot.schemas.response.ApiErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

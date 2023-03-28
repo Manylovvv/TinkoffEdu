@@ -1,10 +1,10 @@
 package ru.tinkoff.edu.java.scrapper.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.tinkoff.edu.java.scrapper.controller.requests.AddLinkRequest;
-import ru.tinkoff.edu.java.scrapper.controller.requests.RemoveLinkRequest;
-import ru.tinkoff.edu.java.scrapper.controller.response.LinkResponse;
-import ru.tinkoff.edu.java.scrapper.controller.response.ListLinksResponse;
+import ru.tinkoff.edu.java.scrapper.schemas.requests.AddLinkRequest;
+import ru.tinkoff.edu.java.scrapper.schemas.requests.RemoveLinkRequest;
+import ru.tinkoff.edu.java.scrapper.schemas.response.LinkResponse;
+import ru.tinkoff.edu.java.scrapper.schemas.response.ListLinksResponse;
 import ru.tinkoff.edu.java.scrapper.exception.IncorrectArgumentException;
 import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
 
