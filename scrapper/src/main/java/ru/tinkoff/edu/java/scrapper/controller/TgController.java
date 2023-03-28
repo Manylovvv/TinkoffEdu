@@ -1,6 +1,7 @@
 package ru.tinkoff.edu.java.scrapper.controller;
 
 import org.springframework.web.bind.annotation.*;
+import ru.tinkoff.edu.java.scrapper.exception.IncorrectArgumentException;
 import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
 
 import java.util.HashSet;
@@ -15,7 +16,7 @@ public class TgController {
     @PostMapping("/{id}")
     public String registerChat(@PathVariable long id) {
         if (!TelegramIds.add(id))
-            throw new IllegalArgumentException(String.format("Chat was already exists", id));
+            throw new IncorrectArgumentException(String.format("Chat was already exists", id));
         else return "Chat was registered";
     }
 

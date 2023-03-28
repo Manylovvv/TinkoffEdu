@@ -1,2 +1,8 @@
 ru\tinkoff\edu\java\bot\configuration\ApplicationConfig.class
+ru\tinkoff\edu\java\bot\model\LinkUpdate.class
+ru\tinkoff\edu\java\bot\scheduler\LinkUpdaterScheduler.class
+ru\tinkoff\edu\java\bot\scheduler\Scheduler.class
+ru\tinkoff\edu\java\bot\controller\BotController.class
 ru\tinkoff\edu\java\bot\BotApplication.class
+ru\tinkoff\edu\java\bot\response\ApiErrorResponse.class
+ru\tinkoff\edu\java\bot\handler\ControllerExceptionHandler.class

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import ru.tinkoff.edu.java.scrapper.controller.response.ApiErrorResponse;
+import ru.tinkoff.edu.java.scrapper.exception.IncorrectArgumentException;
 import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
 
 import java.util.Arrays;
@@ -39,9 +40,9 @@ public class ControllerExceptionHandler {
         return HandleOutput("resource not found", Exception, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(IllegalArgumentException.class)
+    @ExceptionHandler(IncorrectArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse IncorrectRequestParamsException(IllegalArgumentException Exception) {
+    public ApiErrorResponse IncorrectRequestParamsException(IncorrectArgumentException Exception) {
         return HandleOutput("This parameters is not correct", Exception, HttpStatus.BAD_REQUEST);
     }
 
