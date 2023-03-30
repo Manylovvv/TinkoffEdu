@@ -65,7 +65,7 @@
       <recent name="C:\Users\xoros\Desktop\TINKAFINAL\TinkoffEdu\common\src\main\java" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ScrapperApplication">
+  <component name="RunManager" selected="Application.BotApplication">
     <configuration name="BotApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.bot.BotApplication" />
       <module name="bot" />
@@ -118,9 +118,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ScrapperApplication" />
         <item itemvalue="Application.BotApplication" />
         <item itemvalue="Application.ParserMain" />
+        <item itemvalue="Application.ScrapperApplication" />
       </list>
     </recent_temporary>
   </component>

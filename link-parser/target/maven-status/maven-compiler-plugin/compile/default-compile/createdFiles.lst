@@ -1,9 +1,0 @@
-ru\tinkoff\edu\java\parser\parsers\LinkParser.class
-ru\tinkoff\edu\java\parser\data\GitHubLinkData.class
-ru\tinkoff\edu\java\parser\parsers\NullLinkParser.class
-ru\tinkoff\edu\java\parser\data\StackOverflowLinkData.class
-ru\tinkoff\edu\java\parser\data\LinkData.class
-ru\tinkoff\edu\java\parser\parsers\AbstractLinkParser.class
-ru\tinkoff\edu\java\parser\parsers\GitHubLinkParser.class
-ru\tinkoff\edu\java\parser\parsers\StackOverflowLinkParser.class
-ru\tinkoff\edu\java\parser\ParserMain.class
