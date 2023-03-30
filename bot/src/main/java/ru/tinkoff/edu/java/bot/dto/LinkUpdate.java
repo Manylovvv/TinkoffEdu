@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.bot.schemas.model;
+package ru.tinkoff.edu.java.bot.dto;
 
 
 import java.util.List;

@@ -17,7 +17,7 @@ import ru.tinkoff.edu.java.scrapper.api.client.HttpStackOverflowClient;
 import java.util.concurrent.TimeUnit;
 
 @Configuration
-public class ClientConfig {
+public class ClientConfiguration {
 
     @Bean
     public WebClient webClient(

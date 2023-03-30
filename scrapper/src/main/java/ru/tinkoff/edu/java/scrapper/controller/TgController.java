@@ -2,7 +2,7 @@ package ru.tinkoff.edu.java.scrapper.controller;
 
 import org.springframework.web.bind.annotation.*;
 import ru.tinkoff.edu.java.scrapper.exception.IncorrectArgumentException;
-import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
+import ru.tinkoff.edu.java.scrapper.exception.NotFoundException;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +23,7 @@ public class TgController {
     @DeleteMapping("/{id}")
     public String deleteChat(@PathVariable long id){
         if (!TelegramIds.remove(id))
-            throw new ResourceNotFoundException(String.format("Chat was doesn't exist", id));
+            throw new NotFoundException(String.format("Chat was doesn't exist", id));
         else return "Chat was deleted";
     }
 }

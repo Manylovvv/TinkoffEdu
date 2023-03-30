@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.scrapper.schemas.response;
+package ru.tinkoff.edu.java.scrapper.dto;
 
 import java.util.List;
 

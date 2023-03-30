@@ -2,7 +2,7 @@ package ru.tinkoff.edu.java.bot.handler;
 
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.tinkoff.edu.java.bot.schemas.response.ApiErrorResponse;
+import ru.tinkoff.edu.java.bot.dto.ApiErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -25,20 +25,14 @@ public class ControllerExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse IllegalArgs(IllegalArgumentException Exception) {
+    public ApiErrorResponse handleIllegalArgs(IllegalArgumentException Exception) {
         return HandleOutput("There are incorrect parameters in your request!", Exception, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse TypeMismatch(MethodArgumentTypeMismatchException Exception) {
+    public ApiErrorResponse handleTypeMismatch(MethodArgumentTypeMismatchException Exception) {
         return HandleOutput("Type mismatcht!", Exception, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse IncorrectRequest(HttpRequestMethodNotSupportedException Exception) {
-        return  HandleOutput("METOD NOT ALLOWED!", Exception, HttpStatus.BAD_REQUEST);
-        //return HandleOutput("METOD NOT ALLOWED!", Exception, HttpStatus.BAD_REQUEST);
-    }
 }

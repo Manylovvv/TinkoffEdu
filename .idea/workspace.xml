@@ -6,9 +6,23 @@
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/controller/BotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/controller/BotController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/handler/ControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/schemas/model/LinkUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/dto/LinkUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/schemas/response/ApiErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/dto/ApiErrorResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ClientConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/configuration/ClientConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/LinkController.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/LinkController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/TgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/controller/TgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/exception/ResourceNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/exception/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/handler/ControllerExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/schemas/requests/AddLinkRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/dto/AddLinkRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/schemas/requests/RemoveLinkRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/dto/RemoveLinkRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/schemas/response/ApiErrorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/dto/ApiErrorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/schemas/response/LinkResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/dto/LinkResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/schemas/response/ListLinksResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/main/java/ru/tinkoff/edu/java/scrapper/dto/ListLinksResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +52,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tinkoff-course/app" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -87,6 +101,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

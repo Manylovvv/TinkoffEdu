@@ -1,12 +1,12 @@
 package ru.tinkoff.edu.java.scrapper.controller;
 
 import org.springframework.web.bind.annotation.*;
-import ru.tinkoff.edu.java.scrapper.schemas.requests.AddLinkRequest;
-import ru.tinkoff.edu.java.scrapper.schemas.requests.RemoveLinkRequest;
-import ru.tinkoff.edu.java.scrapper.schemas.response.LinkResponse;
-import ru.tinkoff.edu.java.scrapper.schemas.response.ListLinksResponse;
+import ru.tinkoff.edu.java.scrapper.dto.AddLinkRequest;
+import ru.tinkoff.edu.java.scrapper.dto.RemoveLinkRequest;
+import ru.tinkoff.edu.java.scrapper.dto.LinkResponse;
+import ru.tinkoff.edu.java.scrapper.dto.ListLinksResponse;
 import ru.tinkoff.edu.java.scrapper.exception.IncorrectArgumentException;
-import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
+import ru.tinkoff.edu.java.scrapper.exception.NotFoundException;
 
 import java.util.*;
 
@@ -27,7 +27,6 @@ public class LinkController {
                 Arrays.asList(new LinkResponse(3, "https://stackoverflow.com/questions/2469911/how-do-i-assert-my-exception-message-with-junit-test-annotation"))), 1));
     }
 
-    //Получить все отслеживаемые ссылки
     @GetMapping
     public ListLinksResponse getLink(@RequestHeader ("Tg-Chat-Id") long tgChatId){
         var listLinkResponse = ListLinks.get(tgChatId);
@@ -43,7 +42,7 @@ public class LinkController {
             ListLinks.put(tgChatId, new ListLinksResponse(new ArrayList<>(Arrays.asList(newLinkResponse)), 1));
         } else {
             if (listLinksResponse.links().stream().anyMatch(linkResponse -> linkResponse.url().equals(newLinkResponse.url()))) {
-                throw new IncorrectArgumentException("The link you are trying to add already exists");
+                throw new IncorrectArgumentException("The link you adding already exists");
             } else {
                 listLinksResponse.links().add(newLinkResponse);
                 ListLinks.put(tgChatId, new ListLinksResponse(listLinksResponse.links(), listLinksResponse.size() + 1));
@@ -59,7 +58,7 @@ public class LinkController {
         }
         var listLinksResponse = ListLinks.get(tgChatId);
         if (!listLinksResponse.links().removeIf(x -> x.url().equals(request.link()))) {
-            throw new ResourceNotFoundException(String.format("There is no such link [%s]", request.link()));
+            throw new NotFoundException(String.format("There is no such link [%s]", request.link()));
         } else {
             ListLinks.put(tgChatId, new ListLinksResponse(listLinksResponse.links(), listLinksResponse.size() - 1));
             return new LinkResponse(RandomValue.nextLong(), request.link());
