@@ -27,8 +27,8 @@ public class ScrapperApplication {
 
                 System.out.println(response);
                 HttpStackOverflowClient stackOverflowClient = new HttpStackOverflowClient(webClient);
-                StackOverflowLinkData userAndRepoStack = new StackOverflowLinkData("1642028");
-                StackOverflowItemApiResponse resp =  stackOverflowClient.GetQuestion(userAndRepoStack);
-                System.out.println(resp);
+                StackOverflowLinkData QuestStack = new StackOverflowLinkData("1642028");
+                StackOverflowItemApiResponse stackResponse =  stackOverflowClient.GetQuestion(QuestStack);
+                System.out.println(stackResponse);
         }
 }
