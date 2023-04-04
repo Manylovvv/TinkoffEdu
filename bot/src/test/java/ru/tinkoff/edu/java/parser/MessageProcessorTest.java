@@ -84,7 +84,7 @@ public class MessageProcessorTest {
         when(chat.id()).thenReturn(chatId);
         when(client.getAllLinks(anyLong())).thenReturn(response);
         SendMessage message = messageProcessor.processCommand(update);
-        String emptyListMessage = "Пусто";
+        String emptyListMessage = "Список отслеживаемых ссылок пуст!";
         Assertions.assertEquals(emptyListMessage, message.getParameters().get("text"));
         Assertions.assertEquals(chatId, message.getParameters().get("chat_id"));
     }

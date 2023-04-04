@@ -29,9 +29,9 @@ public class ListCommand implements Command {
         try {
            listLinksResponse = scrapperClient.getAllLinks(update.message().chat().id());
         } catch (ApiClientErrorException e) {
-            return new SendMessage(update.message().chat().id(),"Error!");
+            return new SendMessage(update.message().chat().id(),"Список отслеживаемых ссылок пуст!");
         } catch (ApiInternalServerErrorException e) {
-            return new SendMessage(update.message().chat().id(),"Error!");
+            return new SendMessage(update.message().chat().id(),"Список отслеживаемых ссылок пуст!");
         }
         var builder = new StringBuilder();
         if (listLinksResponse.size() == 0) {
