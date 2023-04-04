@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.java.parser;
+package ru.tinkoff.edu.java.bot;
 
 import com.pengrad.telegrambot.model.Chat;
 import com.pengrad.telegrambot.model.Message;
