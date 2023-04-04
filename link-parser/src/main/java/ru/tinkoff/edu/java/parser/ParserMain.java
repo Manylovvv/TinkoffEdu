@@ -18,6 +18,7 @@ public class ParserMain {
 
         String[] urls = {
                 //set links here
+
                 "https://github.com/Manylovvv/TinkoffEdu",
                 "https://github.com/sanyarnd/tinkoff-java-course-2022/",
                 "https://stackoverflow.com/questions/1642028/what-is-the-operator-in-c",

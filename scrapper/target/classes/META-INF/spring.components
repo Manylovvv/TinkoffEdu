@@ -1,0 +1,7 @@
+ru.tinkoff.edu.java.scrapper.ScrapperApplication=org.springframework.stereotype.Component,org.springframework.boot.SpringBootConfiguration
+ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig=org.springframework.boot.context.properties.ConfigurationProperties
+ru.tinkoff.edu.java.scrapper.configuration.ClientConfiguration=org.springframework.stereotype.Component
+ru.tinkoff.edu.java.scrapper.controller.LinkController=org.springframework.stereotype.Component
+ru.tinkoff.edu.java.scrapper.controller.TgController=org.springframework.stereotype.Component
+ru.tinkoff.edu.java.scrapper.handler.ControllerExceptionHandler=org.springframework.stereotype.Component
+ru.tinkoff.edu.java.scrapper.scheduler.LinkUpdaterScheduler=org.springframework.stereotype.Component
