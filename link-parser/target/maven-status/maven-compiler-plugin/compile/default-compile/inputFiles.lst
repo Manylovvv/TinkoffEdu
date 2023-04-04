@@ -1,9 +1,9 @@
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\data\LinkData.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\GitHubLinkParser.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\data\StackOverflowLinkData.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\NullLinkParser.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\ParserMain.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\AbstractLinkParser.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\LinkParser.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\StackOverflowLinkParser.java
-C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src\main\java\ru\tinkoff\edu\java\parser\data\GitHubLinkData.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\GitHubLinkParser.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\AbstractLinkParser.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\LinkParser.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\data\LinkData.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\StackOverflowLinkParser.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\data\GitHubLinkData.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\data\StackOverflowLinkData.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\parsers\NullLinkParser.java
+C:\Users\xoros\Desktop\TINKA\TinkoffEdu\link-parser\src\main\java\ru\tinkoff\edu\java\parser\ParserMain.java

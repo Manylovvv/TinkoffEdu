@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/configuration/BotConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/configuration/BotConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/model/command/ListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/model/command/ListCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/build-info.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bot/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/target/bot-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/bot-1.0-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/build-info.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/link-parser/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/link-parser/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring-configuration-metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/target/scrapper-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/scrapper-1.0-SNAPSHOT.jar.original" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +66,7 @@
       <recent name="ru.tinkoff.edu.java.bot.configuration" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ParserMain">
+  <component name="RunManager" selected="Application.BotApplication">
     <configuration name="BotApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.bot.BotApplication" />
       <module name="bot" />
@@ -134,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BotApplication" />
+        <item itemvalue="Application.ScrapperApplication" />
         <item itemvalue="Application.ParserMain" />
         <item itemvalue="JUnit.ParserTest" />
         <item itemvalue="JUnit.MessageProcessorTest" />
-        <item itemvalue="Application.ScrapperApplication" />
-        <item itemvalue="Application.BotApplication" />
       </list>
     </recent_temporary>
   </component>
