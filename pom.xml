@@ -12,6 +12,7 @@
         <module>link-parser</module>
         <module>scrapper</module>
         <module>bot</module>
+
     </modules>
 
     <properties>
@@ -21,6 +22,7 @@
         <spring-boot.version>3.0.1</spring-boot.version>
         <spring-cloud.version>2022.0.0</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <annotations.version>22.0.0</annotations.version>
     </properties>
 
     <dependencyManagement>
