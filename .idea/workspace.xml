@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
+
       <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/BotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/BotApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/src/test/java/ru/tinkoff/edu/java/parser/MessageProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/test/java/ru/tinkoff/edu/java/bot/MessageProcessorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring.components" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring.components" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/build-info.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +42,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
