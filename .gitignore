@@ -1,6 +1,6 @@
 # Compiled class file
 *.class
-postgre_data
+/migrations/postgre_data/
 # Log file
 *.log
 
