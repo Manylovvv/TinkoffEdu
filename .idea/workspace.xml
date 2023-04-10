@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
-
-      <change beforePath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/BotApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/java/ru/tinkoff/edu/java/bot/BotApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/src/test/java/ru/tinkoff/edu/java/parser/MessageProcessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/bot/src/test/java/ru/tinkoff/edu/java/bot/MessageProcessorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot/target/classes/META-INF/spring.components" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/META-INF/spring.components" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/build-info.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scrapper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/target/classes/META-INF/spring.components" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,18 +39,18 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/scrapper/src/test/java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xoros\Desktop\PROJECTMANAGER\AAA\TinkoffEdu\scrapper\src\test\java" />
       <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\bot\src\main\java\ru\tinkoff\edu\java\bot" />
       <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\bot\src" />
       <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src" />
       <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEdu — копия\bot\src\main\java\ru\tinkoff\edu\java\bot" />
-      <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEdu — копия\bot\src\main\java\ru\tinkoff\edu\java\bot\configuration" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEdu\bot\src\main\java\ru\tinkoff\edu\java\bot" />
@@ -64,7 +60,7 @@
       <recent name="ru.tinkoff.edu.java.bot.configuration" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.BotApplication">
+  <component name="RunManager" selected="Application.ScrapperApplication">
     <configuration name="BotApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.bot.BotApplication" />
       <module name="bot" />
@@ -104,16 +100,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MessageProcessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="bot" />
+    <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="scrapper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.tinkoff.edu.java.parser.*" />
+          <option name="PATTERN" value="edu.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="ru.tinkoff.edu.java.parser" />
-      <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.parser.MessageProcessorTest" />
+      <option name="PACKAGE_NAME" value="edu" />
+      <option name="MAIN_CLASS_NAME" value="edu.IntegrationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BotApplication" />
         <item itemvalue="Application.ScrapperApplication" />
+        <item itemvalue="JUnit.IntegrationTest" />
+        <item itemvalue="Application.BotApplication" />
         <item itemvalue="Application.ParserMain" />
         <item itemvalue="JUnit.ParserTest" />
-        <item itemvalue="JUnit.MessageProcessorTest" />
       </list>
     </recent_temporary>
   </component>
