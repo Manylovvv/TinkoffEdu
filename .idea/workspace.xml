@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="920646ae-6388-40c1-9490-b2d1be48b555" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bot/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bot/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/master.xml" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/master.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/scheme.sql" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/01-schema-1.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,33 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.BotApplication">
+    <configuration name="BotApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.bot.BotApplication" />
+      <module name="bot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.tinkoff.edu.java.bot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.parser.ParserMain" />
+      <module name="link-parser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.tinkoff.edu.java.parser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="scrapper" />
       <extension name="coverage">
@@ -60,6 +86,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BotApplication" />
+        <item itemvalue="Application.ParserMain" />
         <item itemvalue="JUnit.IntegrationTest" />
       </list>
     </recent_temporary>
@@ -74,5 +102,16 @@
       <updated>1681204532300</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
