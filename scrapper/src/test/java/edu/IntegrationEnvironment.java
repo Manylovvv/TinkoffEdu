@@ -18,13 +18,9 @@ import java.sql.SQLException;
 
 public abstract class IntegrationEnvironment {
     static final protected PostgreSQLContainer POSTGRE_SQL_CONTAINER;
-    static final private String CHANGELOG_PATH = "master.xml";
-    static final private String POSTGRESQL_IMAGE = "postgres:14";
-    static final private Path ROOT_DIRECTORY = Path.of(".").toAbsolutePath().getParent().getParent()
-            .resolve("migrations/");
 
     static {
-        POSTGRE_SQL_CONTAINER = new PostgreSQLContainer<>(POSTGRESQL_IMAGE);
+        POSTGRE_SQL_CONTAINER = new PostgreSQLContainer<>("postgres:14");
         POSTGRE_SQL_CONTAINER.start();
 
         try {
@@ -34,8 +30,9 @@ public abstract class IntegrationEnvironment {
                     POSTGRE_SQL_CONTAINER.getPassword());
             Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
             Liquibase liquibase = new liquibase.Liquibase(
-                    CHANGELOG_PATH,
-                    new DirectoryResourceAccessor(ROOT_DIRECTORY),
+                    "master.xml",
+                    new DirectoryResourceAccessor(Path.of(".").toAbsolutePath().getParent().getParent()
+                            .resolve("migrations")),
                     database);
             liquibase.update(new Contexts(), new LabelExpression());
         } catch (SQLException | LiquibaseException | FileNotFoundException e) {
