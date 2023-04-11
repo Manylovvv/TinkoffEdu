@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="">
+    <list default="true" id="920646ae-6388-40c1-9490-b2d1be48b555" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scrapper/src/test/java/edu/IntegrationEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/scrapper/src/test/java/edu/IntegrationEnvironment.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,8 +28,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2NbCEwjk1Httdi9o0AFerd0bIwi" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2OH5An10JCiqsybdFGiz4JxsPF6" />
   <component name="ProjectViewState">
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -43,68 +36,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/scrapper/src/test/java" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\xoros\Desktop\PROJECTMANAGER\AAA\TinkoffEdu\scrapper\src\test\java" />
-      <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\bot\src\main\java\ru\tinkoff\edu\java\bot" />
-      <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\bot\src" />
-      <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEduLAST\link-parser\src" />
-      <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEdu — копия\bot\src\main\java\ru\tinkoff\edu\java\bot" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\xoros\Desktop\Новая папка (3)\TinkoffEdu\bot\src\main\java\ru\tinkoff\edu\java\bot" />
-      <recent name="C:\Users\xoros\Desktop\TINKAFINAL\TinkoffEdu\common\src\main\java" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ru.tinkoff.edu.java.bot.configuration" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.ParserMain">
-    <configuration name="BotApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.bot.BotApplication" />
-      <module name="bot" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.tinkoff.edu.java.bot.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ParserMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.parser.ParserMain" />
-      <module name="link-parser" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.tinkoff.edu.java.parser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScrapperApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.tinkoff.edu.java.scrapper.ScrapperApplication" />
-      <module name="scrapper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.tinkoff.edu.java.scrapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="IntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="scrapper" />
       <extension name="coverage">
@@ -120,52 +58,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IntegrationTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="scrapper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="edu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="edu" />
-      <option name="MAIN_CLASS_NAME" value="edu.IntegrationTest" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ParserMain" />
-        <item itemvalue="Application.ScrapperApplication" />
         <item itemvalue="JUnit.IntegrationTest" />
-        <item itemvalue="JUnit.IntegrationTest.test" />
-        <item itemvalue="Application.BotApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="005f6e34-e998-4ae6-aaa6-73ec469c35f7" name="Changes" comment="" />
-      <created>1679923287198</created>
+      <changelist id="920646ae-6388-40c1-9490-b2d1be48b555" name="Changes" comment="" />
+      <created>1681204532300</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1679923287198</updated>
+      <updated>1681204532300</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
