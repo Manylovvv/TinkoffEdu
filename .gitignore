@@ -2,7 +2,7 @@
 *.class
 /.idea/
 target
-
+pgdata
 # Log file
 *.log
 *.xml
