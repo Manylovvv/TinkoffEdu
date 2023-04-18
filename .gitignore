@@ -5,7 +5,6 @@
 pgdata
 # Log file
 *.log
-*.xml
 # BlueJ files
 *.ctxt
 
