@@ -3,13 +3,14 @@
     {
       "name": "app",
       "type": "ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig",
-      "sourceType": "ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig"
+      "sourceType": "ru.tinkoff.edu.java.scrapper.ScrapperApplication",
+      "sourceMethod": "applicationConfig()"
     }
   ],
   "properties": [
     {
       "name": "app.scheduler",
-      "type": "ru.tinkoff.edu.java.scrapper.scheduler.Scheduler",
+      "type": "ru.tinkoff.edu.java.scrapper.configuration.Scheduler",
       "sourceType": "ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig"
     },
     {

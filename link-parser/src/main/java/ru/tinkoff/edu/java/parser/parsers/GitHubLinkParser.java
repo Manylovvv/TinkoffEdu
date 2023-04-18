@@ -1,22 +1,26 @@
 package ru.tinkoff.edu.java.parser.parsers;
 
+import ru.tinkoff.edu.java.parser.record.GitHubRecord;
 
-import ru.tinkoff.edu.java.parser.data.GitHubLinkData;
-import ru.tinkoff.edu.java.parser.data.LinkData;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public final class GitHubLinkParser extends AbstractLinkParser implements LinkParser {
-    private static final String GITHUB_HOST = "github.com";
+public final class GitHubLinkParser extends LinkParser {
+    private final Pattern PATTERN = Pattern.compile("^https://github.com/([\\w.-]+)/([\\w.-]+)/");
+
+    public GitHubLinkParser(LinkParser nextParser) {
+        super(nextParser);
+    }
+
     @Override
-    public LinkData parseLink(String url) {
-
-        if (url != null && url.contains(GITHUB_HOST)) {
-            String[] parts = url.split("/");
-            if (parts.length >= 5) {
-                String user_name = parts[3];
-                String repository_name = parts[4];
-                return new GitHubLinkData(user_name, repository_name);
-            }
+    public Record parseLink(String link) {
+        Matcher matcher = PATTERN.matcher(link);
+        if (matcher.matches()) {
+            return new GitHubRecord(matcher.group(1), matcher.group(2));
         }
-        return handleNext(url);
+        if (nextParser != null) {
+            return nextParser.parseLink(link);
+        }
+        return null;
     }
 }
