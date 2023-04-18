@@ -1,42 +1,46 @@
 package ru.tinkoff.edu.java.scrapper.handler;
 
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import ru.tinkoff.edu.java.scrapper.dto.ApiErrorResponse;
-import ru.tinkoff.edu.java.scrapper.exception.IncorrectArgumentException;
-import ru.tinkoff.edu.java.scrapper.exception.NotFoundException;
+import ru.tinkoff.edu.java.scrapper.dto.response.ApiErrorResponse;
+import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
 
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    private ApiErrorResponse HandleOutput(String message, Exception exception, HttpStatus httpStatus) {
+    @ExceptionHandler(value = {ResourceNotFoundException.class})
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    public ApiErrorResponse resourceNotFoundException(ResourceNotFoundException ex) {
         return new ApiErrorResponse(
-                message,
-                String.valueOf(httpStatus.value()),
-                exception.getClass().getName(),
-                exception.getMessage(),
-                Arrays.stream(exception.getStackTrace()).map(String::valueOf).toList()
-        );
+                "Resource not found",
+                "404",
+                ex.getClass().getName(),
+                ex.getMessage(),
+                Arrays.stream(ex.getStackTrace()).map(StackTraceElement::toString).collect(Collectors.toList()));
     }
 
-    @ExceptionHandler({NotFoundException.class, NullPointerException.class})
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ApiErrorResponse handleResourceNotFoundException(RuntimeException Exception) {
-        return HandleOutput("resource not found", Exception, HttpStatus.NOT_FOUND);
+    @ExceptionHandler(value = {
+            MissingRequestHeaderException.class,
+            HttpMessageNotReadableException.class,
+            TypeMismatchException.class,
+            MethodArgumentNotValidException.class  // in case valid checks are added
+    })
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public ApiErrorResponse resourceNotFoundException(Exception ex) {
+        return new ApiErrorResponse(
+                "Invalid request parameters",
+                "400",
+                ex.getClass().getName(),
+                ex.getMessage(),
+                Arrays.stream(ex.getStackTrace()).map(StackTraceElement::toString).collect(Collectors.toList()));
     }
-
-    @ExceptionHandler({IncorrectArgumentException.class, MethodArgumentTypeMismatchException.class})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrorResponse handleIncorrectRequestParamsException(IncorrectArgumentException Exception) {
-        return HandleOutput("This parameters is not correct", Exception, HttpStatus.BAD_REQUEST);
-    }
-
-
 }

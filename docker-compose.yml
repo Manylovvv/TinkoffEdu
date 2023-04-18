@@ -5,11 +5,11 @@ services:
     container_name: postgres
     image: postgres:14
     environment:
-      POSTGRES_USER: postgre_user
       POSTGRES_DB: scrapper
-      POSTGRES_PASSWORD: postgre_password
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpwd
     volumes:
-      - ./migrations/postgre_data:/var/lib/postgresql/data
+      - ./migrations/pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
@@ -21,15 +21,15 @@ services:
     deploy:
       restart_policy:
         condition: on-failure
-        delay: 15s
-        max_attempts: 15
+        delay: 5s
+        max_attempts: 10
     command:
       - --hub-mode=off
       - --changelog-file=master.xml
       - --driver=org.postgresql.Driver
       - --url=jdbc:postgresql://postgres:5432/scrapper
-      - --username=postgre_user
-      - --password=postgre_password
+      - --username=pguser
+      - --password=pgpwd
       - update
     volumes:
       - ./migrations:/liquibase/changelog

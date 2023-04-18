@@ -1,7 +1,10 @@
 package ru.tinkoff.edu.java.parser.parsers;
 
-import ru.tinkoff.edu.java.parser.data.LinkData;
+import lombok.AllArgsConstructor;
 
-public sealed interface LinkParser permits AbstractLinkParser, NullLinkParser, GitHubLinkParser, StackOverflowLinkParser {
-    LinkData parseLink(String site_url);
+@AllArgsConstructor
+public sealed abstract class LinkParser permits GitHubLinkParser, StackOverflowLinkParser {
+    protected LinkParser nextParser;
+
+    abstract Record parseLink(String link);
 }

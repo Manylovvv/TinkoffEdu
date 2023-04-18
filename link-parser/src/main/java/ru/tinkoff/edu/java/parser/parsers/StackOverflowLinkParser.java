@@ -1,19 +1,27 @@
 package ru.tinkoff.edu.java.parser.parsers;
 
-import ru.tinkoff.edu.java.parser.data.LinkData;
-import ru.tinkoff.edu.java.parser.data.StackOverflowLinkData;
+import ru.tinkoff.edu.java.parser.record.StackOverflowRecord;
 
-public final class StackOverflowLinkParser extends AbstractLinkParser implements LinkParser {
-    private static final String STACKOF_HOST = "stackoverflow.com";
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public final class StackOverflowLinkParser extends LinkParser {
+    private final Pattern PATTERN =
+            Pattern.compile("^https://stackoverflow.com/questions/(\\d+)/[a-z-\\d]+");
+
+    public StackOverflowLinkParser(LinkParser nextLink) {
+        super(nextLink);
+    }
+
     @Override
-    public LinkData parseLink(String stack_url) {
-        if (stack_url != null && stack_url.contains(STACKOF_HOST) && stack_url.contains("questions")) {
-            String[] parts = stack_url.split("/");
-            if (parts.length >= 5) {
-                String question_id = parts[4];
-                return new StackOverflowLinkData(question_id);
-            }
+    public Record parseLink(String link) {
+        Matcher matcher = PATTERN.matcher(link);
+        if (matcher.matches()) {
+            return new StackOverflowRecord(Long.parseLong(matcher.group(1)));
         }
-        return handleNext(stack_url);
+        if (nextParser != null) {
+            return nextParser.parseLink(link);
+        }
+        return null;
     }
 }
