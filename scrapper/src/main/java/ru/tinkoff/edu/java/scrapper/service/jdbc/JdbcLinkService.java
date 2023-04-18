@@ -11,6 +11,7 @@ import ru.tinkoff.edu.java.scrapper.dto.response.LinkResponse;
 import ru.tinkoff.edu.java.scrapper.dto.response.ListLinksResponse;
 import ru.tinkoff.edu.java.scrapper.service.converter.Converter;
 
+import ru.tinkoff.edu.java.scrapper.service.Updater.LinkManipulator;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 
 import java.net.URI;
