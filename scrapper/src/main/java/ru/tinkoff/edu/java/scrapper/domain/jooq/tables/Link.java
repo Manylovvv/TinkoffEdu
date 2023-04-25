@@ -5,6 +5,8 @@ package ru.tinkoff.edu.java.scrapper.domain.jooq.tables;
 
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
 
 import javax.annotation.processing.Generated;
@@ -141,6 +143,12 @@ public class Link extends TableImpl<LinkRecord> {
     @NotNull
     public UniqueKey<LinkRecord> getPrimaryKey() {
         return Keys.CONSTRAINT_2;
+    }
+
+    @Override
+    @NotNull
+    public List<UniqueKey<LinkRecord>> getUniqueKeys() {
+        return Arrays.asList(Keys.CONSTRAINT_23);
     }
 
     @Override

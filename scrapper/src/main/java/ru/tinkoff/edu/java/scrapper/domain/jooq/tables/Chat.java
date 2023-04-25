@@ -4,6 +4,8 @@
 package ru.tinkoff.edu.java.scrapper.domain.jooq.tables;
 
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Function;
 
 import javax.annotation.processing.Generated;
@@ -120,6 +122,12 @@ public class Chat extends TableImpl<ChatRecord> {
     @NotNull
     public UniqueKey<ChatRecord> getPrimaryKey() {
         return Keys.CONSTRAINT_1;
+    }
+
+    @Override
+    @NotNull
+    public List<UniqueKey<ChatRecord>> getUniqueKeys() {
+        return Arrays.asList(Keys.CONSTRAINT_1F);
     }
 
     @Override

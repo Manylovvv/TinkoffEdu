@@ -5,9 +5,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import ru.tinkoff.edu.java.scrapper.domain.repository.ChatLinkRepository;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
-@Primary
+
 @AllArgsConstructor
-@Service
 public class JdbcTgChatService implements TgChatService {
     private final ChatLinkRepository repository;
 

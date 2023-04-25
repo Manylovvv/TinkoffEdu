@@ -16,9 +16,8 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 
 import java.net.URI;
 import java.util.List;
-@Primary
+
 @AllArgsConstructor
-@Service
 public class JdbcLinkService implements LinkService {
     private final ChatLinkRepository repository;
     private final LinkRepository linkRepository;

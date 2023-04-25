@@ -22,7 +22,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
-@Service
 public class JooqLinkService implements LinkService {
     private DSLContext context;
     private final Converter converter;

@@ -15,7 +15,6 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
 import java.util.List;
 
 @AllArgsConstructor
-@Service
 public class JooqTgChatService implements TgChatService {
     private DSLContext context;
 
