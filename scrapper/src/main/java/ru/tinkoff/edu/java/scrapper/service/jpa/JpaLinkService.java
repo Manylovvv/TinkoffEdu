@@ -2,6 +2,7 @@ package ru.tinkoff.edu.java.scrapper.service.jpa;
 
 import lombok.AllArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
+import ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
 import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.ChatLinkEntityRepository;
@@ -31,6 +32,7 @@ public class JpaLinkService implements LinkService {
     private final ChatLinkEntityRepository chatLinkEntityRepository;
     private final LinkManipulator linkManipulator;
     private final Converter converter;
+    private final ApplicationConfig config;
 
     @Transactional
     @Override
@@ -84,7 +86,7 @@ public class JpaLinkService implements LinkService {
     @Override
     public List<Link> findLinksForUpdate() {
         return linkEntityRepository.findAll().stream().filter((LinkEntity le) ->
-            le.getLastUpdate().isBefore(OffsetDateTime.of(LocalDateTime.now().minusMinutes(5), ZoneOffset.UTC))
+                le.getLastUpdate().isBefore(OffsetDateTime.of(LocalDateTime.now().minusMinutes(config.getUpdateInterval()), ZoneOffset.UTC))
         ).map((LinkEntity le) -> {
             try {
                 return converter.linkEntityToLink(le);

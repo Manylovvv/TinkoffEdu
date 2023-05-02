@@ -12,7 +12,7 @@ import ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcLinkService;
 
 
 @AllArgsConstructor
-@RestController()
+@RestController
 @RequestMapping("/links")
 public class LinksController {
     private final LinkService service;

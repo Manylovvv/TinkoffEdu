@@ -6,7 +6,7 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
 import ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcTgChatService;
 
 @AllArgsConstructor
-@RestController()
+@RestController
 @RequestMapping("/tg-chat")
 public class TgChatController {
 
