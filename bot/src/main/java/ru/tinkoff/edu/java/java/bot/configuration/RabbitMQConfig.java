@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConditionalOnProperty(prefix = "app", name = "use-queue", havingValue = "true")
-public class RabbitConfig {
+public class RabbitMQConfig {
     @Value("${app.queue-name}")
     private String queueName;
     @Value("${app.exchange-name}")
