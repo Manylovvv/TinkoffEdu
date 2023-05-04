@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig;
 import ru.tinkoff.edu.java.scrapper.domain.jooq.Tables;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
@@ -26,6 +27,7 @@ public class JooqLinkService implements LinkService {
     private DSLContext context;
     private final Converter converter;
     private final LinkManipulator linkManipulator;
+    private final ApplicationConfig config;
 
     @Transactional
     @Override
@@ -93,7 +95,7 @@ public class JooqLinkService implements LinkService {
     @Override
     public List<Link> findLinksForUpdate() {
         return context.select(Tables.LINK.fields()).from(Tables.LINK)
-                .where(Tables.LINK.LAST_UPDATE.lessThan(LocalDateTime.now().minusMinutes(5))).fetchInto(Link.class);
+                .where(Tables.LINK.LAST_UPDATE.lessThan(LocalDateTime.now().minusMinutes(config.getUpdateInterval()))).fetchInto(Link.class);
     }
 
     @Override
@@ -129,3 +131,4 @@ public class JooqLinkService implements LinkService {
         return chats.get(0);
     }
 }
+

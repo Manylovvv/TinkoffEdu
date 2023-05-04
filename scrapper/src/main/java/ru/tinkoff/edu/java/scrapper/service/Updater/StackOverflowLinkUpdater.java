@@ -7,6 +7,7 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.response.QuestionResponse;
 import ru.tinkoff.edu.java.parser.record.StackOverflowRecord;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkUpdater;
+import ru.tinkoff.edu.java.scrapper.service.sender.LinkUpdateSender;
 
 import java.time.OffsetDateTime;
 import java.time.ZoneId;

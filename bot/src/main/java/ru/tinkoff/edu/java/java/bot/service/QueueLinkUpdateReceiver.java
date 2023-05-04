@@ -6,6 +6,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import ru.tinkoff.edu.java.java.bot.dto.request.LinkUpdate;
 import ru.tinkoff.edu.java.java.bot.model.core.BotCreator;
 
+
 @RabbitListener(queues = "${app.queue-name}")
 public class QueueLinkUpdateReceiver extends LinkUpdateReceiver {
     public QueueLinkUpdateReceiver(BotCreator bot) {

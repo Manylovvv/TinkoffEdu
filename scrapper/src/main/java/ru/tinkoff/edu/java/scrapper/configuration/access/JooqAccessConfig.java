@@ -4,6 +4,7 @@ import org.jooq.DSLContext;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig;
 import ru.tinkoff.edu.java.scrapper.service.Updater.LinkManipulator;
 import ru.tinkoff.edu.java.scrapper.service.converter.Converter;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
@@ -19,9 +20,10 @@ public class JooqAccessConfig {
     public LinkService linkService(
             DSLContext context,
             Converter converter,
-            LinkManipulator linkManipulator
+            LinkManipulator linkManipulator,
+            ApplicationConfig config
     ) {
-        return new JooqLinkService(context, converter, linkManipulator);
+        return new JooqLinkService(context, converter, linkManipulator, config);
     }
 
     @Bean

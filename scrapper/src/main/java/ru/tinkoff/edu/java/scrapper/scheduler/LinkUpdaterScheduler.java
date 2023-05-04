@@ -11,7 +11,6 @@ import ru.tinkoff.edu.java.scrapper.service.Updater.GitHubLinkUpdater;
 import ru.tinkoff.edu.java.scrapper.service.Updater.LinkManipulator;
 import ru.tinkoff.edu.java.scrapper.service.Updater.StackOverflowLinkUpdater;
 
-
 import java.util.List;
 
 @Component

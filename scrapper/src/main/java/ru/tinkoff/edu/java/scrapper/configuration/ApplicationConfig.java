@@ -22,13 +22,13 @@ public class ApplicationConfig {
     AccessType databaseAccessType;
 
     @NotNull
+    Integer updateInterval;
+
+    @NotNull
     boolean useQueue;
 
     String queueName;
 
     String exchangeName;
-
-    @NotNull
-    Integer updateInterval;
 }
 

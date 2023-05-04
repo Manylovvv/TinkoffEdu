@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+import ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
 import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.LinkMapper;
 import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
-
 import java.net.URI;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
@@ -19,10 +19,11 @@ import java.util.List;
 public class LinkRepository {
     private final JdbcTemplate jdbcTemplate;
     private final LinkMapper linkMapper;
+    private final ApplicationConfig config;
 
     public List<Link> findAllForUpdate() {
-        return findAll().stream().filter(link -> link.getLastUpdate().isBefore(OffsetDateTime.of(LocalDateTime.now().minusMinutes(5)
-                , ZoneOffset.UTC))).toList();
+        return findAll().stream().filter(link -> link.getLastUpdate()
+                .isBefore(OffsetDateTime.of(LocalDateTime.now().minusMinutes(config.getUpdateInterval()), ZoneOffset.UTC))).toList();
     }
 
     public List<Link> findAll() {
