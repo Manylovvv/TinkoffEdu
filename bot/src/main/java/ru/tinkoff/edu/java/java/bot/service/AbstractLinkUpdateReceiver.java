@@ -5,7 +5,7 @@ import ru.tinkoff.edu.java.java.bot.dto.request.LinkUpdate;
 import ru.tinkoff.edu.java.java.bot.model.core.BotCreator;
 
 @AllArgsConstructor
-public abstract class LinkUpdateReceiver {
+public abstract class AbstractLinkUpdateReceiver {
     private BotCreator bot;
 
     public abstract void receiveUpdate(LinkUpdate request);
