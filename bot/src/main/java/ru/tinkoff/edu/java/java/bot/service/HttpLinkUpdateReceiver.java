@@ -3,7 +3,7 @@ package ru.tinkoff.edu.java.java.bot.service;
 import ru.tinkoff.edu.java.java.bot.dto.request.LinkUpdate;
 import ru.tinkoff.edu.java.java.bot.model.core.BotCreator;
 
-public class HttpLinkUpdateReceiver extends LinkUpdateReceiver {
+public class HttpLinkUpdateReceiver extends AbstractLinkUpdateReceiver {
     public HttpLinkUpdateReceiver(BotCreator bot) {
         super(bot);
     }

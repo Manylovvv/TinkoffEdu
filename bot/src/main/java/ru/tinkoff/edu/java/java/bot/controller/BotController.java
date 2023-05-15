@@ -5,13 +5,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.tinkoff.edu.java.java.bot.dto.request.LinkUpdate;
-import ru.tinkoff.edu.java.java.bot.service.LinkUpdateReceiver;
+import ru.tinkoff.edu.java.java.bot.service.AbstractLinkUpdateReceiver;
 
 @AllArgsConstructor
 @RestController
 public class BotController {
-
-    private LinkUpdateReceiver linkUpdateReceiver;
+    private AbstractLinkUpdateReceiver linkUpdateReceiver;
 
     @PostMapping("/updates")
     public void update(@RequestBody LinkUpdate request) {

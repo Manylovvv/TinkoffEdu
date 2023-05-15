@@ -1,21 +1,17 @@
 package ru.tinkoff.edu.java.scrapper.service.jdbc;
 
+import java.net.URI;
+import java.util.List;
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
 import ru.tinkoff.edu.java.scrapper.domain.repository.ChatLinkRepository;
 import ru.tinkoff.edu.java.scrapper.domain.repository.LinkRepository;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
 import ru.tinkoff.edu.java.scrapper.dto.response.LinkResponse;
 import ru.tinkoff.edu.java.scrapper.dto.response.ListLinksResponse;
-import ru.tinkoff.edu.java.scrapper.service.converter.Converter;
-
 import ru.tinkoff.edu.java.scrapper.service.Updater.LinkManipulator;
+import ru.tinkoff.edu.java.scrapper.service.converter.Converter;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
-
-import java.net.URI;
-import java.util.List;
 
 @AllArgsConstructor
 public class JdbcLinkService implements LinkService {

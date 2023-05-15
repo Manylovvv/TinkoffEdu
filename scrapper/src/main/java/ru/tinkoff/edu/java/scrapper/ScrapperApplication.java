@@ -9,14 +9,10 @@ import ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig;
 
 @SpringBootApplication
 @EnableScheduling
-public class ScrapperApplication
-{
+public class ScrapperApplication {
 
-    public static void main( String[] args )
-    {
-        var ctx = SpringApplication.run(ScrapperApplication.class, args);
-        ApplicationConfig config = ctx.getBean(ApplicationConfig.class);
-        System.out.println(config);
+    public static void main(String[] args) {
+        SpringApplication.run(ScrapperApplication.class, args);
     }
 
     @Bean("applicationConfig")

@@ -1,5 +1,6 @@
 package ru.tinkoff.edu.java.scrapper.service.jpa;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.ChatLinkEntityRepository;
@@ -9,9 +10,6 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.entity.LinkEntity;
 import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.entity.TgChatEntity;
 import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
-
-
-import java.util.List;
 
 @AllArgsConstructor
 public class JpaTgChatService implements TgChatService {
@@ -29,7 +27,7 @@ public class JpaTgChatService implements TgChatService {
     @Override
     public void unregister(Long tgChatId) {
         TgChatEntity tgChatEntity = tgChatEntityRepository.findByTgChatId(tgChatId)
-                .orElseThrow(() -> new ResourceNotFoundException("Tg chat '" + tgChatId + "' was not found"));
+            .orElseThrow(() -> new ResourceNotFoundException("Tg chat '" + tgChatId + "' was not found"));
         List<LinkEntity> trackedLinks = chatLinkEntityRepository.getLinksByTgChatId(tgChatId);
         for (LinkEntity link: trackedLinks) {
             untrackLink(link, tgChatEntity);

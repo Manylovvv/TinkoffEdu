@@ -26,7 +26,10 @@ public class UntrackCommand implements Command {
         }
         boolean result = client.deleteTrackedLink(update.message().chat().id(), update.message().text());
         if (!result) {
-            return new SendMessage(update.message().chat().id(), "Произошла ошибка\nПроверьте, что введенная ссылка верна, и попробуйте еще раз");
+            return new SendMessage(
+                update.message().chat().id(),
+                "Произошла ошибка\nПроверьте, что введенная ссылка верна, и попробуйте еще раз"
+            );
         }
         return new SendMessage(update.message().chat().id(), "Ссылка успешно удалена из списка для отслеживания");
     }

@@ -2,14 +2,18 @@ package ru.tinkoff.edu.java.scrapper.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import ru.tinkoff.edu.java.scrapper.dto.request.AddLinkRequest;
 import ru.tinkoff.edu.java.scrapper.dto.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.scrapper.dto.response.LinkResponse;
 import ru.tinkoff.edu.java.scrapper.dto.response.ListLinksResponse;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
-import ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcLinkService;
-
 
 @AllArgsConstructor
 @RestController
@@ -28,7 +32,10 @@ public class LinksController {
     }
 
     @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public LinkResponse deleteTrackedLink(@RequestHeader("Tg-Chat-Id") Long id, @RequestBody RemoveLinkRequest request) {
+    public LinkResponse deleteTrackedLink(
+        @RequestHeader("Tg-Chat-Id") Long id,
+        @RequestBody RemoveLinkRequest request
+    ) {
         return service.remove(id, request.getUrl());
     }
 }

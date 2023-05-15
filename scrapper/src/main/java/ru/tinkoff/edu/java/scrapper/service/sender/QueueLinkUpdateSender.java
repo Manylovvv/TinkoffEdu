@@ -8,7 +8,6 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
 import ru.tinkoff.edu.java.scrapper.dto.request.LinkUpdate;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 
-
 @AllArgsConstructor
 public class QueueLinkUpdateSender implements LinkUpdateSender {
     private final LinkService linkService;

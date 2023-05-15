@@ -4,6 +4,10 @@ import com.pengrad.telegrambot.model.Chat;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Collections;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,14 +17,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import ru.tinkoff.edu.java.java.bot.dto.response.LinkResponse;
 import ru.tinkoff.edu.java.java.bot.dto.response.ListLinksResponse;
 import ru.tinkoff.edu.java.java.bot.model.command.ListCommand;
-import ru.tinkoff.edu.java.java.bot.scrapper.api.ScrapperClient;
 import ru.tinkoff.edu.java.java.bot.model.core.CoreUpdater;
-
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Collections;
-import java.util.List;
+import ru.tinkoff.edu.java.java.bot.scrapper.api.ScrapperClient;
 
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
@@ -64,8 +62,8 @@ public class MessageProcessorTest {
         LinkResponse link2 = new LinkResponse(2L, new URI("https://stackoverflow.com/questions/1642028/what-is-the-operator-in-c"));
         ListLinksResponse response = new ListLinksResponse(List.of(link1, link2), 2);
         String messageText = "<b>Список отслеживаемых ссылок:</b>\n"
-                + "1. " + link1.getUrl().toString() + "\n"
-                + "2. " + link2.getUrl().toString() + "\n";
+            + "1. " + link1.getUrl().toString() + "\n"
+            + "2. " + link2.getUrl().toString() + "\n";
 
         when(update.message()).thenReturn(message);
         when(message.text()).thenReturn("/list");
@@ -83,7 +81,7 @@ public class MessageProcessorTest {
     public void processListCommand_emptyList() {
         Long chatId = 12345678L;
         String emptyListMessage = "Список отслеживаемых ссылок пуст!\n"
-                + "Чтобы добавить ссылку для отслеживания, используйте команду /track";
+            + "Чтобы добавить ссылку для отслеживания, используйте команду /track";
         ListLinksResponse response = new ListLinksResponse(Collections.emptyList(), 0);
 
         when(update.message()).thenReturn(message);

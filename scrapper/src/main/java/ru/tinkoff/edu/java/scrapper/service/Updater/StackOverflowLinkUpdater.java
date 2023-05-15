@@ -1,16 +1,15 @@
 package ru.tinkoff.edu.java.scrapper.service.Updater;
 
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.tinkoff.edu.java.parser.record.StackOverflowRecord;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
 import ru.tinkoff.edu.java.scrapper.domain.repository.response.QuestionResponse;
-import ru.tinkoff.edu.java.parser.record.StackOverflowRecord;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkUpdater;
 import ru.tinkoff.edu.java.scrapper.service.sender.LinkUpdateSender;
-
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
 
 @AllArgsConstructor
 @Service
@@ -26,7 +25,10 @@ public class StackOverflowLinkUpdater implements LinkUpdater {
         if (!response.answer_count().equals(link.getAnswerCount())) {
             link.setLastActivity(response.last_activity_date());
             link.setAnswerCount(response.answer_count());
-            linkUpdateSender.sendUpdate(link, "In question '" + response.question_id() + "' new answers have been added!");
+            linkUpdateSender.sendUpdate(
+                link,
+                "In question '" + response.question_id() + "' new answers have been added!"
+            );
         } else if (response.last_activity_date().isAfter(link.getLastActivity())) {
             link.setLastActivity(response.last_activity_date());
             linkUpdateSender.sendUpdate(link, "Question '" + response.question_id() + "' has updates!");

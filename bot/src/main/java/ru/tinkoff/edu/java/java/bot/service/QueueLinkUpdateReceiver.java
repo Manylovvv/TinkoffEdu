@@ -6,9 +6,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import ru.tinkoff.edu.java.java.bot.dto.request.LinkUpdate;
 import ru.tinkoff.edu.java.java.bot.model.core.BotCreator;
 
-
 @RabbitListener(queues = "${app.queue-name}")
-public class QueueLinkUpdateReceiver extends LinkUpdateReceiver {
+public class QueueLinkUpdateReceiver extends AbstractLinkUpdateReceiver {
     public QueueLinkUpdateReceiver(BotCreator bot) {
         super(bot);
     }
@@ -21,6 +20,6 @@ public class QueueLinkUpdateReceiver extends LinkUpdateReceiver {
 
     @RabbitListener(queues = "${app.queue-name}.dlq")
     public void processFailedMessagesRequeue(Message failedMessage) {
-        System.out.println("Error while receiving update: " + failedMessage);
+        System.err.println("Error while receiving update: " + failedMessage);
     }
 }

@@ -1,11 +1,11 @@
 package ru.tinkoff.edu.java.scrapper.domain.repository.mapper;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 @Component
 public class TgChatMapper implements RowMapper<TgChat> {

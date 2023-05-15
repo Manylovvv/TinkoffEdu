@@ -1,8 +1,6 @@
 package ru.tinkoff.edu.java.scrapper.service.jdbc;
 
 import lombok.AllArgsConstructor;
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Service;
 import ru.tinkoff.edu.java.scrapper.domain.repository.ChatLinkRepository;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
 

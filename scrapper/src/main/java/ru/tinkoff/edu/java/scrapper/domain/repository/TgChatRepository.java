@@ -1,13 +1,12 @@
 package ru.tinkoff.edu.java.scrapper.domain.repository;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
 import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.TgChatMapper;
-
-import java.util.List;
 
 @AllArgsConstructor
 @Repository

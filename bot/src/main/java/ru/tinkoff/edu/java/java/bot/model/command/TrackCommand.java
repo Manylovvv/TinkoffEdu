@@ -26,7 +26,10 @@ public class TrackCommand implements Command {
         }
         boolean result = client.addTrackedLink(update.message().chat().id(), update.message().text());
         if (!result) {
-            return new SendMessage(update.message().chat().id(), "Ошибка!\nПроверьте, что введенная ссылка верна, и попробуйте еще раз");
+            return new SendMessage(
+                update.message().chat().id(),
+                "Произошла ошибка\nПроверьте, что введенная ссылка верна, и попробуйте еще раз"
+            );
         }
         return new SendMessage(update.message().chat().id(), "Ссылка успешно добавлена в список для отслеживания");
     }

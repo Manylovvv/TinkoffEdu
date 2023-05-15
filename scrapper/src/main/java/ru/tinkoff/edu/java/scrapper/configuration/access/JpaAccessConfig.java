@@ -20,21 +20,28 @@ import ru.tinkoff.edu.java.scrapper.service.jpa.JpaTgChatService;
 public class JpaAccessConfig {
     @Bean
     public LinkService linkService(
-            TgChatEntityRepository tgChatEntityRepository,
-            LinkEntityRepository linkEntityRepository,
-            ChatLinkEntityRepository chatLinkEntityRepository,
-            LinkManipulator linkManipulator,
-            Converter converter,
-            ApplicationConfig config
+        TgChatEntityRepository tgChatEntityRepository,
+        LinkEntityRepository linkEntityRepository,
+        ChatLinkEntityRepository chatLinkEntityRepository,
+        LinkManipulator linkManipulator,
+        Converter converter,
+        ApplicationConfig config
     ) {
-        return new JpaLinkService(tgChatEntityRepository, linkEntityRepository, chatLinkEntityRepository, linkManipulator, converter, config);
+        return new JpaLinkService(
+            tgChatEntityRepository,
+            linkEntityRepository,
+            chatLinkEntityRepository,
+            linkManipulator,
+            converter,
+            config
+        );
     }
 
     @Bean
     public TgChatService tgChatService(
-            TgChatEntityRepository tgChatEntityRepository,
-            LinkEntityRepository linkEntityRepository,
-            ChatLinkEntityRepository chatLinkEntityRepository
+        TgChatEntityRepository tgChatEntityRepository,
+        LinkEntityRepository linkEntityRepository,
+        ChatLinkEntityRepository chatLinkEntityRepository
     ) {
         return new JpaTgChatService(tgChatEntityRepository, linkEntityRepository, chatLinkEntityRepository);
     }
