@@ -27,7 +27,7 @@ jobs:
           cache: maven
 
       - name: Build Maven project
-        run: cd parent-project && mvn package -pl bot -am
+        run: mvn package -pl bot -am
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
@@ -44,7 +44,7 @@ jobs:
           script: return 'ghcr.io/${{ github.repository }}'.toLowerCase()
 
       - name: Build Docker image
-        run: cd parent-project && docker build --file bot.Dockerfile -t ${{ steps.lowercase_repo.outputs.result }}/bot:latest .
+        run: docker build --file bot.Dockerfile -t ${{ steps.lowercase_repo.outputs.result }}/bot:latest .
 
       - name: Push Docker image to GitHub Container Registry
         run: docker push ${{ steps.lowercase_repo.outputs.result }}/bot:latest
@@ -63,4 +63,4 @@ jobs:
           cache: maven
 
       - name: Run check style
-        run: cd parent-project && mvn -pl bot -am checkstyle:check
+        run: mvn -pl bot -am checkstyle:check
