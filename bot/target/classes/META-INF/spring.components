@@ -1,6 +1,0 @@
-ru.tinkoff.edu.java.bot.BotApplication=org.springframework.stereotype.Component,org.springframework.boot.SpringBootConfiguration
-ru.tinkoff.edu.java.bot.configuration.ApplicationConfig=org.springframework.boot.context.properties.ConfigurationProperties
-ru.tinkoff.edu.java.bot.configuration.WebClientConfig=org.springframework.stereotype.Component
-ru.tinkoff.edu.java.bot.controller.BotController=org.springframework.stereotype.Component
-ru.tinkoff.edu.java.bot.handler.ControllerExceptionHandler=org.springframework.stereotype.Component
-ru.tinkoff.edu.java.bot.scheduler.LinkUpdaterScheduler=org.springframework.stereotype.Component
