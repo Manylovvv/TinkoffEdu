@@ -12,10 +12,11 @@ import ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcLinkService;
 
 
 @AllArgsConstructor
-@RestController()
+@RestController
 @RequestMapping("/links")
 public class LinksController {
     private final LinkService service;
+
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ListLinksResponse getTrackedLinks(@RequestHeader("Tg-Chat-Id") Long id) {
         return service.listAll(id);

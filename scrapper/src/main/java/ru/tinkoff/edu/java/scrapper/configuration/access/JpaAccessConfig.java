@@ -3,6 +3,7 @@ package ru.tinkoff.edu.java.scrapper.configuration.access;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig;
 import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.ChatLinkEntityRepository;
 import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.LinkEntityRepository;
 import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.TgChatEntityRepository;
@@ -23,9 +24,10 @@ public class JpaAccessConfig {
             LinkEntityRepository linkEntityRepository,
             ChatLinkEntityRepository chatLinkEntityRepository,
             LinkManipulator linkManipulator,
-            Converter converter
+            Converter converter,
+            ApplicationConfig config
     ) {
-        return new JpaLinkService(tgChatEntityRepository, linkEntityRepository, chatLinkEntityRepository, linkManipulator, converter);
+        return new JpaLinkService(tgChatEntityRepository, linkEntityRepository, chatLinkEntityRepository, linkManipulator, converter, config);
     }
 
     @Bean

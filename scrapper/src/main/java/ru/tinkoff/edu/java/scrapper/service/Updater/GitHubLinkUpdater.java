@@ -7,6 +7,7 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.response.RepositoryRespons
 import ru.tinkoff.edu.java.parser.record.GitHubRecord;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkUpdater;
+import ru.tinkoff.edu.java.scrapper.service.sender.LinkUpdateSender;
 
 import java.time.OffsetDateTime;
 

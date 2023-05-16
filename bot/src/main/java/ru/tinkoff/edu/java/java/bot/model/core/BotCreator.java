@@ -4,6 +4,7 @@ import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.BotCommand;
 import com.pengrad.telegrambot.model.Update;
+import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.request.SetMyCommands;
 import ru.tinkoff.edu.java.java.bot.model.command.Command;
 
@@ -27,5 +28,11 @@ public class BotCreator implements UpdatesListener {
             telegramBot.execute(processor.processCommand(update));
         }
         return UpdatesListener.CONFIRMED_UPDATES_ALL;
+    }
+
+    public void sendMessages(String description, List<Long> tgChatIds) {
+        for (Long tgChatId: tgChatIds) {
+            telegramBot.execute(new SendMessage(tgChatId, description));
+        }
     }
 }

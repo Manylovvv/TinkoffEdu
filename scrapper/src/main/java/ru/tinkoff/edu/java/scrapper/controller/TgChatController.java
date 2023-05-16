@@ -6,11 +6,11 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
 import ru.tinkoff.edu.java.scrapper.service.jdbc.JdbcTgChatService;
 
 @AllArgsConstructor
-@RestController()
+@RestController
 @RequestMapping("/tg-chat")
 public class TgChatController {
-
     private final TgChatService service;
+
     @PostMapping(value = "/{id}")
     public void registerChat(@PathVariable("id") Long id) {
         service.register(id);
