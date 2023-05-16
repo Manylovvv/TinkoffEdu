@@ -1,27 +1,21 @@
 package ru.tinkoff.edu.java.parser.parsers;
 
-import ru.tinkoff.edu.java.parser.record.StackOverflowRecord;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import ru.tinkoff.edu.java.parser.records.StackOverflowRecord;
 
-public final class StackOverflowLinkParser extends LinkParser {
-    private final Pattern PATTERN =
-            Pattern.compile("^https://stackoverflow.com/questions/(\\d+)/[a-z-\\d]+");
-
-    public StackOverflowLinkParser(LinkParser nextLink) {
+public final class StackOverflowLinkParser extends AbstractLinkParser {
+    private static final String PATTERN_STRING = "^https://stackoverflow.com/questions/(\\d+)/[a-z-\\d]+";
+    private static final Pattern PATTERN = Pattern.compile(PATTERN_STRING);
+    public StackOverflowLinkParser(AbstractLinkParser nextLink) {
         super(nextLink);
     }
-
     @Override
     public Record parseLink(String link) {
         Matcher matcher = PATTERN.matcher(link);
-        if (matcher.matches()) {
+        if (matcher.find()) {
             return new StackOverflowRecord(Long.parseLong(matcher.group(1)));
         }
-        if (nextParser != null) {
-            return nextParser.parseLink(link);
-        }
-        return null;
+        return nextParser != null ? nextParser.parseLink(link) : null;
     }
 }
