@@ -39,8 +39,10 @@ public class Keys {
     // -------------------------------------------------------------------------
 
     public static final UniqueKey<ChatRecord> CONSTRAINT_1 = Internal.createUniqueKey(Chat.CHAT, DSL.name("CONSTRAINT_1"), new TableField[] { Chat.CHAT.ID }, true);
+    public static final UniqueKey<ChatRecord> CONSTRAINT_1F = Internal.createUniqueKey(Chat.CHAT, DSL.name("CONSTRAINT_1F"), new TableField[] { Chat.CHAT.TG_CHAT_ID }, true);
     public static final UniqueKey<ChatLinkRecord> CONSTRAINT_8 = Internal.createUniqueKey(ChatLink.CHAT_LINK, DSL.name("CONSTRAINT_8"), new TableField[] { ChatLink.CHAT_LINK.ID }, true);
     public static final UniqueKey<LinkRecord> CONSTRAINT_2 = Internal.createUniqueKey(Link.LINK, DSL.name("CONSTRAINT_2"), new TableField[] { Link.LINK.ID }, true);
+    public static final UniqueKey<LinkRecord> CONSTRAINT_23 = Internal.createUniqueKey(Link.LINK, DSL.name("CONSTRAINT_23"), new TableField[] { Link.LINK.LINK_ }, true);
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
