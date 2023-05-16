@@ -5,22 +5,17 @@ import java.util.regex.Pattern;
 import ru.tinkoff.edu.java.parser.records.StackOverflowRecord;
 
 public final class StackOverflowLinkParser extends AbstractLinkParser {
-    private final Pattern pattern =
-        Pattern.compile("^https://stackoverflow.com/questions/(\\d+)/[a-z-\\d]+");
-
+    private static final String PATTERN_STRING = "^https://stackoverflow.com/questions/(\\d+)/[a-z-\\d]+";
+    private static final Pattern PATTERN = Pattern.compile(PATTERN_STRING);
     public StackOverflowLinkParser(AbstractLinkParser nextLink) {
         super(nextLink);
     }
-
     @Override
     public Record parseLink(String link) {
-        Matcher matcher = pattern.matcher(link);
-        if (matcher.matches()) {
+        Matcher matcher = PATTERN.matcher(link);
+        if (matcher.find()) {
             return new StackOverflowRecord(Long.parseLong(matcher.group(1)));
         }
-        if (nextParser != null) {
-            return nextParser.parseLink(link);
-        }
-        return null;
+        return nextParser != null ? nextParser.parseLink(link) : null;
     }
 }
