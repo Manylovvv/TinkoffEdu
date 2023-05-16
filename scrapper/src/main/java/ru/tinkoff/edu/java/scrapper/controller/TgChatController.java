@@ -14,13 +14,13 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
 public class TgChatController {
     private final TgChatService service;
 
-    @PostMapping(value = "/{id}")
-    public void registerChat(@PathVariable("id") Long id) {
-        service.register(id);
-    }
-
     @DeleteMapping(value = "{id}")
     public void deleteChat(@PathVariable("id") Long id) {
         service.unregister(id);
+    }
+
+    @PostMapping(value = "/{id}")
+    public void registerChat(@PathVariable("id") Long id) {
+        service.register(id);
     }
 }

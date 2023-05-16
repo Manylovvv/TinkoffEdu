@@ -1,6 +1,17 @@
 version: "3.9"
 
 services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: 'rabbitmq:3.6-management-alpine'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      AMQP_URL: 'amqp://rabbitmq?connection_attempts=5&retry_delay=5'
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+
   postgres:
     container_name: postgres
     image: postgres:14
@@ -35,17 +46,6 @@ services:
       - ./migrations:/liquibase/changelog
     networks:
       - backend
-
-  rabbitmq:
-    container_name: rabbitmq
-    image: 'rabbitmq:3.6-management-alpine'
-    ports:
-      - '5672:5672'
-      - '15672:15672'
-    environment:
-      AMQP_URL: 'amqp://rabbitmq?connection_attempts=5&retry_delay=5'
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
 
 volumes:
   rabbitmq_data:

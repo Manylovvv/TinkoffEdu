@@ -10,24 +10,16 @@ public class GitHubClient {
     private final int timeout = 10;
 
     public GitHubClient() {
-        webClient = WebClient.builder()
-            .baseUrl(baseUrl)
-            .build();
+        webClient = WebClient.builder().baseUrl(baseUrl).build();
     }
 
     public GitHubClient(String url) {
-        webClient = WebClient.builder()
-            .baseUrl(url)
-            .build();
+        webClient = WebClient.builder().baseUrl(url).build();
     }
 
     public RepositoryResponse getRepoInfo(String username, String repo) {
-        return webClient.get()
-            .uri("{username}/{repo}", username, repo)
-            .retrieve()
-            .bodyToMono(RepositoryResponse.class)
-            .timeout(Duration.ofSeconds(timeout))
-            .block();
+        return webClient.get().uri("{username}/{repo}", username, repo).retrieve()
+            .bodyToMono(RepositoryResponse.class).timeout(Duration.ofSeconds(timeout)).block();
     }
 }
 

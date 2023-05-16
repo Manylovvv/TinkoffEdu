@@ -11,14 +11,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import ru.tinkoff.edu.java.scrapper.configuration.ApplicationConfig;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
-import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.LinkMapper;
-import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
+import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.Mapper;
+import ru.tinkoff.edu.java.scrapper.excontroller.exception.NotFoundException;
 
 @AllArgsConstructor
 @Repository
 public class LinkRepository {
     private final JdbcTemplate jdbcTemplate;
-    private final LinkMapper linkMapper;
+    private final Mapper mapper;
     private final ApplicationConfig config;
 
     public List<Link> findAllForUpdate() {
@@ -28,7 +28,7 @@ public class LinkRepository {
     }
 
     public List<Link> findAll() {
-        return jdbcTemplate.query("select * from link", linkMapper);
+        return jdbcTemplate.query("select * from link", mapper);
     }
 
     public Link add(Link url) {
@@ -42,14 +42,14 @@ public class LinkRepository {
     public void remove(URI url) {
         Link link = get(url);
         if (link == null) {
-            throw new ResourceNotFoundException("Link '" + url + "' was not found");
+            throw new NotFoundException("Link '" + url + "' was not found");
         }
         jdbcTemplate.update("delete from link where link=?", url.toString());
     }
 
     public Link get(URI url) {
         try {
-            return jdbcTemplate.queryForObject("select * from link where link=?", linkMapper, url.toString());
+            return jdbcTemplate.queryForObject("select * from link where link=?", mapper, url.toString());
         } catch (EmptyResultDataAccessException e) {
             return null;
         }

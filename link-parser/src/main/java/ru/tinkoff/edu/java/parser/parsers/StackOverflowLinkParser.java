@@ -2,7 +2,7 @@ package ru.tinkoff.edu.java.parser.parsers;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import ru.tinkoff.edu.java.parser.record.StackOverflowRecord;
+import ru.tinkoff.edu.java.parser.records.StackOverflowRecord;
 
 public final class StackOverflowLinkParser extends AbstractLinkParser {
     private final Pattern pattern =

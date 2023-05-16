@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
-import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.LinkMapper;
-import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.TgChatMapper;
-import ru.tinkoff.edu.java.scrapper.exception.ResourceNotFoundException;
+import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.Mapper;
+import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.TgMapper;
+import ru.tinkoff.edu.java.scrapper.excontroller.exception.NotFoundException;
 
 @AllArgsConstructor
 @Repository
@@ -18,8 +18,8 @@ public class ChatLinkRepository {
     private final LinkRepository linkRepository;
     private final TgChatRepository tgChatRepository;
     private final JdbcTemplate jdbcTemplate;
-    private final TgChatMapper tgChatMapper;
-    private final LinkMapper linkMapper;
+    private final TgMapper tgMapper;
+    private final Mapper mapper;
 
     public void registerChat(Long tgChatId) {
         tgChatRepository.add(tgChatId);
@@ -38,10 +38,10 @@ public class ChatLinkRepository {
     public List<Link> getAllLinks(Long tgChatId) {
         TgChat tgChat = tgChatRepository.get(tgChatId);
         if (tgChat == null) {
-            throw new ResourceNotFoundException("Tg chat '" + tgChatId + "' was not found");
+            throw new NotFoundException("Tg chat '" + tgChatId + "' was not found");
         }
         return jdbcTemplate.query("select * from link where id in (select link_id from chat_link cl "
-            + "join chat c on cl.chat_id=c.id where c.id=?)", linkMapper, tgChat.getId());
+            + "join chat c on cl.chat_id=c.id where c.id=?)", mapper, tgChat.getId());
     }
 
     @Transactional
@@ -52,7 +52,7 @@ public class ChatLinkRepository {
         }
         TgChat tgChat = tgChatRepository.get(tgChatId);
         if (tgChat == null) {
-            throw new ResourceNotFoundException("Tg chat '" + tgChatId + "' was not found");
+            throw new NotFoundException("Tg chat '" + tgChatId + "' was not found");
         }
         Integer rowCount =
             jdbcTemplate.queryForObject("select count(*) from chat_link where chat_id=? and link_id=?", Integer.class,
@@ -69,11 +69,11 @@ public class ChatLinkRepository {
     public Link untrackLink(Long tgChatId, URI url) {
         Link link = linkRepository.get(url);
         if (link == null) {
-            throw new ResourceNotFoundException("Link '" + url + "' was not found");
+            throw new NotFoundException("Link '" + url + "' was not found");
         }
         TgChat tgChat = tgChatRepository.get(tgChatId);
         if (tgChat == null) {
-            throw new ResourceNotFoundException("Tg chat '" + tgChatId + "' was not found");
+            throw new NotFoundException("Tg chat '" + tgChatId + "' was not found");
         }
         int rowCount =
             jdbcTemplate.update("delete from chat_link where chat_id=? and link_id=?", tgChat.getId(), link.getId());
@@ -89,7 +89,7 @@ public class ChatLinkRepository {
     public List<TgChat> getChatsForLink(Link link) {
         return jdbcTemplate.query(
             "select * from chat where id in (select chat_id from chat_link where link_id=?)",
-            tgChatMapper,
+            tgMapper,
             link.getId()
         );
     }

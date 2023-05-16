@@ -5,7 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
-import ru.tinkoff.edu.java.scrapper.configuration.access.AccessType;
+import ru.tinkoff.edu.java.scrapper.configuration.access.enums.AccessType;
+import ru.tinkoff.edu.java.scrapper.configuration.sheduler.Scheduler;
 
 @Getter
 @Setter
@@ -14,21 +15,15 @@ import ru.tinkoff.edu.java.scrapper.configuration.access.AccessType;
 public class ApplicationConfig {
     @NotNull
     String test;
-
-    @NotNull
-    Scheduler scheduler;
-
-    @NotNull
-    AccessType databaseAccessType;
-
     @NotNull
     Integer updateInterval;
-
+    @NotNull
+    Scheduler scheduler;
+    @NotNull
+    AccessType databaseAccessType;
     @NotNull
     boolean useQueue;
-
-    String queueName;
-
     String exchangeName;
+    String queueName;
 }
 
