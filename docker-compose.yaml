@@ -5,12 +5,14 @@ services:
     container_name: rabbitmq
     image: 'rabbitmq:3.6-management-alpine'
     ports:
-      - '5672:5672'
-      - '15672:15672'
+      - 5672:5672  #Порт для AMPQ
+      - 15672:15672 #Порт для UI
     environment:
       AMQP_URL: 'amqp://rabbitmq?connection_attempts=5&retry_delay=5'
       RABBITMQ_DEFAULT_USER: "guest"
       RABBITMQ_DEFAULT_PASS: "guest"
+    volumes:
+      - ./migrations/rabbitmq_data:/var/lib/rabbitmq
 
   postgres:
     container_name: postgres
