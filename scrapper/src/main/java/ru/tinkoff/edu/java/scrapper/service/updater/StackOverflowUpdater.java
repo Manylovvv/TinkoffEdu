@@ -12,13 +12,22 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkUpdater;
 import ru.tinkoff.edu.java.scrapper.service.renew.LinkRenew;
 import ru.tinkoff.edu.java.scrapper.service.sender.interfaces.LinkUpdateSender;
 
+/**аннотация из библиотеки Lombok, которая генерирует конструктор со всеми аргументами*/
 @AllArgsConstructor
+/**показывает, что класс представляет собой сервис для реализации бизнес-логики*/
 @Service
 public class StackOverflowUpdater implements LinkUpdater {
     private final LinkService linkService;
     private final LinkRenew linkRenew;
     private final LinkUpdateSender linkUpdateSender;
 
+    /**
+     * Метод update использует объект linkRenew для получения последней информации о ссылке из Stack Overflow,
+     * сравнивает количество ответов и дату последнего действия с текущими значениями в объекте ссылки и при
+     * необходимости отправляет обновление в linkUpdateSender. Обновление содержит сообщение, которое зависит от того,
+     * был ли добавлен новый ответ или вопрос был обновлен. Наконец, linkService используется для обновления
+     * объекта ссылки в базе данных.
+     */
     @Override
     public void update(Link link) {
         QuestionResponse response = linkRenew.getResponse((StackOverflowRecord) linkRenew.getRecord(link));

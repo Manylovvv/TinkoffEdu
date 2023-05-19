@@ -9,7 +9,12 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 import ru.tinkoff.edu.java.scrapper.service.sender.impl.QueueLinkSender;
 import ru.tinkoff.edu.java.scrapper.service.sender.interfaces.LinkUpdateSender;
 
+/**Аннотация, которая определяет класс конфигурационным и содержит бины*/
 @Configuration
+/**
+ * Аннотация, которая указывает, что данный класс будет создан только в том случае,
+ * если в файле application.properties установлено свойство app.use-queue равное true
+ */
 @ConditionalOnProperty(prefix = "app", name = "use-queue", havingValue = "true")
 public class QueueSenderConfiguration {
     @Bean

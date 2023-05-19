@@ -9,6 +9,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
+/**
+ * Генерирует параметризованный конструктор, который принимает
+ * один параметр для каждого поля и инициализирует их с его помощью
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 public class LinkUpdate {

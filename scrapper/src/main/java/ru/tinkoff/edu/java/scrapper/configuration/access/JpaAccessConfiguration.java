@@ -14,9 +14,18 @@ import ru.tinkoff.edu.java.scrapper.service.jpa.JpaTgChatService;
 import ru.tinkoff.edu.java.scrapper.service.refactor.Refactor;
 import ru.tinkoff.edu.java.scrapper.service.renew.LinkRenew;
 
+/**Аннотация, которая определяет класс конфигурационным и содержит бины*/
 @Configuration
+/**
+ * Аннотация, которая определяет, что этот класс будет создан
+ * только при наличии свойства с access-type со значением jpa
+ */
 @ConditionalOnProperty(prefix = "app", name = "database-access-type", havingValue = "jpa")
 public class JpaAccessConfiguration {
+    /**
+     * Аннотация для методов в конфигурационном файле Спринга.
+     * Она указывает на то, что метод должен быть оберткой над объектом-бином Спринга
+     */
     @Bean
     public LinkService linkService(
         ApplicationConfig config, LinkEntityRepository linkEntityRepository, LinkRenew linkRenew, Refactor refactor,
@@ -25,6 +34,9 @@ public class JpaAccessConfiguration {
             tgChatEntityRepository, chatLinkEntityRepository);
     }
 
+    /**
+     * объявление бина TgChatService и принятие в качестве параметра ChatLinkRepository
+     */
     @Bean
     public TgChatService tgChatService(TgChatEntityRepository tgChatEntityRepository,
         LinkEntityRepository linkEntityRepository,

@@ -10,14 +10,24 @@ public class StackOverflowClient {
     private final String baseUrl = "https://api.stackexchange.com/2.3/questions/";
     private final WebClient webClient;
 
+    /**
+     * Установка базового URL и создание объекта Вебклиент
+     */
     public StackOverflowClient() {
         webClient = WebClient.builder().baseUrl(baseUrl).build();
     }
 
+    /**
+     * Инициализация объекта и установка базового URL-адреса
+     */
     public StackOverflowClient(String url) {
         webClient = WebClient.builder().baseUrl(url).build();
     }
 
+    /**
+     * Отправка реквеста на сервак через вебклиент.
+     * post -> uri -> bodytomono (тело запроса) -> timeout (время ожидания сервака) -> block (ожидание ответа)
+     */
     public QuestionResponse getQuestionInfo(Long questionId) {
         return webClient.get().uri(uriBuilder -> uriBuilder.path(questionId.toString())
                 .queryParam("site", "stackoverflow").build()).retrieve().bodyToMono(QuestionsResponse.class)

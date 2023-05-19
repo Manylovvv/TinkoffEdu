@@ -11,6 +11,11 @@ import ru.tinkoff.edu.java.java.bot.controller.dto.request.RemoveLinkRequest;
 import ru.tinkoff.edu.java.java.bot.controller.dto.response.LinkResponse;
 import ru.tinkoff.edu.java.java.bot.controller.dto.response.ListLinksResponse;
 
+/**
+ * Класс ScrapperClient имеет два конструктора: один использует базовый URL-адрес
+ * по умолчанию (http://localhost:8081/), а другой — пользовательский базовый URL-адрес.
+ * Доступ к веб-службе осуществляется с помощью Spring WebClient API.
+ */
 public class ScrapperClient {
     private final String baseUrl = "http://localhost:8081/";
     private final WebClient webClient;
@@ -26,12 +31,22 @@ public class ScrapperClient {
         webClient = WebClient.builder().baseUrl(url).build();
     }
 
+    /**
+     * отправляет POST-запрос веб-службе для регистрации
+     * чата Telegram с заданным идентификатором.
+     * @param id - индентификатор чата
+     */
     public void registerChat(Long id) {
         webClient.post()
             .uri("/tg-chat/" + id.toString()).retrieve()
             .bodyToMono(Void.class).timeout(Duration.ofSeconds(timeout)).block();
     }
 
+    /**
+     * отправляет GET-запрос веб-службе для получения списка отслеживаемых
+     * ссылок для указанного идентификатора чата Telegram
+     * @param id - идентификатор чата
+     */
     public ListLinksResponse getListLinks(Long id) {
         return webClient.get()
             .uri("links").header("Tg-Chat-Id", id.toString()).retrieve()
@@ -39,6 +54,13 @@ public class ScrapperClient {
             .onErrorReturn(new ListLinksResponse()).block();
     }
 
+    /**
+     * отправляет POST-запрос веб-службе, чтобы добавить новую отслеживаемую
+     * ссылку для указанного идентификатора чата Telegram.
+     * @param id - идентификатор чата
+     * @param link - ссылка
+     * @return - булинова переменная обозначающее свойство добавления ссылки
+     */
     public boolean addTrackedLink(Long id, String link) {
         AddLinkRequest request;
         try {
@@ -54,6 +76,13 @@ public class ScrapperClient {
         return response != null && response.getUrl() != null && response.getUrl().toString().equals(link);
     }
 
+    /**
+     * отправляет запрос DELETE в веб-службу на удаление отслеживаемой ссылки для указанного идентификатора
+     * чата Telegram.
+     * @param id - идентификатор чата
+     * @param link - ссылка
+     * @return - Возвращает логическое значение, указывающее, успешно ли удалена ссылка.
+     */
     public boolean deleteTrackedLink(Long id, String link) {
         RemoveLinkRequest request;
         try {

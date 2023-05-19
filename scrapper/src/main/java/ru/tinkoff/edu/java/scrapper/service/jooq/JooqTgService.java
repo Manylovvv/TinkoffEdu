@@ -10,11 +10,13 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.dto.TgChat;
 import ru.tinkoff.edu.java.scrapper.excontroller.exception.NotFoundException;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
 
+/**аннотация из библиотеки Lombok, которая генерирует конструктор со всеми аргументами*/
 @AllArgsConstructor
 public class JooqTgService implements TgChatService {
     private DSLContext context;
 
     @Transactional
+    /**Метод register вставляет новый объект TgChat с заданным идентификатором, если он еще не существует*/
     @Override
     public void register(Long tgChatId) {
         TgChat tgChat = getTgChat(tgChatId);
@@ -24,6 +26,10 @@ public class JooqTgService implements TgChatService {
         context.insertInto(Tables.CHAT, Tables.CHAT.TG_CHAT_ID).values(tgChatId).execute();
     }
 
+    /**
+     * Метод unregister находит TgChat с заданным идентификатором, удаляет все объекты ChatLink,
+     * которые связывают чат с любыми ссылками, удаляет объект Link, если он больше не отслеживается
+     * ни одним чатом, и, наконец, удаляет объект TgChat. */
     @Transactional
     @Override
     public void unregister(Long tgChatId) {
@@ -48,6 +54,10 @@ public class JooqTgService implements TgChatService {
         context.deleteFrom(Tables.CHAT).where(Tables.CHAT.TG_CHAT_ID.eq(tgChatId)).execute();
     }
 
+    /**
+     * метод, который возвращает объект TgChat с заданным идентификатором,
+     * если он существует, или null в противном случае
+     */
     private TgChat getTgChat(Long tgChatId) {
         List<TgChat> chats = context.select(Tables.CHAT.fields()).from(Tables.CHAT)
             .where(Tables.CHAT.TG_CHAT_ID.eq(tgChatId)).fetchInto(TgChat.class);

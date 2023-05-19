@@ -3,8 +3,8 @@ package ru.tinkoff.edu.java.java.bot.telegram.command.impl;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import lombok.AllArgsConstructor;
-import ru.tinkoff.edu.java.java.bot.telegram.command.interfaces.Command;
 import ru.tinkoff.edu.java.java.bot.scrapper.api.ScrapperClient;
+import ru.tinkoff.edu.java.java.bot.telegram.command.interfaces.Command;
 
 @AllArgsConstructor
 public class TrackCommand implements Command {

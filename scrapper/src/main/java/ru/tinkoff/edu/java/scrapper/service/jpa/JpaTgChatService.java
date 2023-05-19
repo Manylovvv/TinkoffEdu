@@ -11,6 +11,7 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.entity.TgChatEntity;
 import ru.tinkoff.edu.java.scrapper.excontroller.exception.NotFoundException;
 import ru.tinkoff.edu.java.scrapper.service.interfaces.TgChatService;
 
+/**аннотация из библиотеки Lombok, которая генерирует конструктор со всеми аргументами*/
 @AllArgsConstructor
 public class JpaTgChatService implements TgChatService {
     private final TgChatEntityRepository tgChatEntityRepository;
@@ -24,6 +25,11 @@ public class JpaTgChatService implements TgChatService {
         }
     }
 
+    /**
+     * Метод unregister находит TgChatEntity с заданным идентификатором, удаляет все объекты ChatLinkEntity,
+     * которые связывают чат с любыми ссылками, и удаляет объект LinkEntity,
+     * если он больше не отслеживается ни одним чатом
+     */
     @Transactional
     @Override
     public void unregister(Long tgChatId) {
@@ -36,6 +42,7 @@ public class JpaTgChatService implements TgChatService {
         tgChatEntityRepository.deleteById(tgChatEntity.getId());
     }
 
+    /**Метод register вставляет новый объект TgChatEntity с заданным идентификатором*/
     @Transactional
     @Override
     public void register(Long tgChatId) {

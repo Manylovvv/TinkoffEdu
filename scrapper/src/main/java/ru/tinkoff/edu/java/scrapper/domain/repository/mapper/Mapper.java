@@ -9,8 +9,16 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import ru.tinkoff.edu.java.scrapper.domain.repository.dto.Link;
 
+/**
+ * Mapper, реализующий интерфейс RowMapper,
+ * который используется для сопоставления строк данных из запроса к базе данных с объектами Java
+ */
 @Component
 public class Mapper implements RowMapper<Link> {
+    /**
+     * Метод mapRow принимает объект ResultSet и целочисленный
+     * параметр и возвращает объект Link, созданный из данных в ResultSet
+     */
     @Override
     public Link mapRow(ResultSet rs, int rowNum) throws SQLException {
         try {

@@ -12,7 +12,12 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.Mapper;
 import ru.tinkoff.edu.java.scrapper.domain.repository.mapper.TgMapper;
 import ru.tinkoff.edu.java.scrapper.excontroller.exception.NotFoundException;
 
+/**
+ * Генерирует параметризованный конструктор, который
+ * принимает один параметр для каждого поля и инициализирует их с его помощью
+ */
 @AllArgsConstructor
+/**Аннотация, которая указывает, что это компонент репозитория данных Спринга*/
 @Repository
 public class ChatLinkRepository {
     private final LinkRepository linkRepository;
@@ -21,10 +26,16 @@ public class ChatLinkRepository {
     private final TgMapper tgMapper;
     private final Mapper mapper;
 
+    /**
+     * Метод добавляет в базу данных новый чат
+     */
     public void registerChat(Long tgChatId) {
         tgChatRepository.add(tgChatId);
     }
 
+    /**
+     * Метод unregisterChat() удаляет чат из базы данных и не отслеживает все ссылки, отслеживаемые чатом
+     */
     @Transactional
     public void unregisterChat(Long tgChatId) {
         List<Link> trackedLinks = getAllLinks(tgChatId);
@@ -34,6 +45,9 @@ public class ChatLinkRepository {
         tgChatRepository.remove(tgChatId);
     }
 
+    /**
+     * Метод getAllLinks() извлекает из базы данных все ссылки, отслеживаемые чатом
+     */
     @Transactional
     public List<Link> getAllLinks(Long tgChatId) {
         TgChat tgChat = tgChatRepository.get(tgChatId);
@@ -44,6 +58,9 @@ public class ChatLinkRepository {
             + "join chat c on cl.chat_id=c.id where c.id=?)", mapper, tgChat.getId());
     }
 
+    /**
+     * Метод trackLink() добавляет новую ссылку в базу данных и связывает ее с чатом
+     */
     @Transactional
     public Link trackLink(Long tgChatId, Link url) {
         Link link = linkRepository.get(url.getLink());
@@ -65,6 +82,9 @@ public class ChatLinkRepository {
         return link;
     }
 
+    /**
+     * Метод untrackLink() удаляет ссылку из базы данных и отменяет ее связь с чатом
+     */
     @Transactional
     public Link untrackLink(Long tgChatId, URI url) {
         Link link = linkRepository.get(url);
@@ -86,6 +106,9 @@ public class ChatLinkRepository {
         return link;
     }
 
+    /**
+     * Метод getChatsForLink() извлекает из базы данных все чаты, которые отслеживают ссылки
+     */
     public List<TgChat> getChatsForLink(Link link) {
         return jdbcTemplate.query(
             "select * from chat where id in (select chat_id from chat_link where link_id=?)",

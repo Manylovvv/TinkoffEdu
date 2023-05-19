@@ -11,13 +11,22 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkUpdater;
 import ru.tinkoff.edu.java.scrapper.service.renew.LinkRenew;
 import ru.tinkoff.edu.java.scrapper.service.sender.interfaces.LinkUpdateSender;
 
+/**аннотация из библиотеки Lombok, которая генерирует конструктор со всеми аргументами*/
 @AllArgsConstructor
+/**показывает, что класс представляет собой сервис для реализации бизнес-логики*/
 @Service
 public class GitHubUpdater implements LinkUpdater {
     private final LinkService linkService;
     private final LinkRenew linkRenew;
     private final LinkUpdateSender linkUpdateSender;
 
+    /**
+     * Метод обновления использует объект linkRenew для получения последней информации о ссылке из GitHub,
+     * сравнивает количество открытых задач и дату последней активности с текущими значениями в объекте ссылки
+     * и при необходимости отправляет обновление в linkUpdateSender. Обновление содержит сообщение, которое
+     * зависит от того, была ли открыта или закрыта новая проблема или был ли обновлен репозиторий. Наконец,
+     * linkService используется для обновления объекта ссылки в базе данных
+     */
     @Override
     public void update(Link link) {
         RepositoryResponse response = linkRenew.getResponse((GitHubRecord) linkRenew.getRecord(link));

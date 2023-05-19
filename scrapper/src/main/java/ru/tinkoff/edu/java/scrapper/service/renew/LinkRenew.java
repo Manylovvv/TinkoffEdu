@@ -15,7 +15,9 @@ import ru.tinkoff.edu.java.scrapper.domain.repository.jpa.entity.LinkEntity;
 import ru.tinkoff.edu.java.scrapper.domain.repository.response.QuestionResponse;
 import ru.tinkoff.edu.java.scrapper.domain.repository.response.RepositoryResponse;
 
+/**аннотация из библиотеки Lombok, которая генерирует конструктор со всеми аргументами*/
 @AllArgsConstructor
+/**показывает, что класс представляет собой сервис для реализации бизнес-логики*/
 @Service
 public class LinkRenew {
     private StackOverflowClient stackOverflowClient;
@@ -23,10 +25,19 @@ public class LinkRenew {
     private final GitHubLinkParser gitHubLinkParser = new GitHubLinkParser(null);
     private final StackOverflowLinkParser stackOverflowLinkParser = new StackOverflowLinkParser(gitHubLinkParser);
 
+    /**
+     * принимает объект URI, представляющий ссылку, и возвращает новый объект LinkEntity.
+     * Он использует метод parseLink класса StackOverflowLinkParser для анализа ссылки и определения того,
+     * является ли она ссылкой Stack Overflow или GitHub. Если это ссылка GitHub,
+     * она использует метод getRepoInfo класса GitHubClient для получения информации
+     * о репозитории и установки свойств lastActivity и openIssuesCount объекта LinkEntity.
+     * Если это ссылка Stack Overflow, она использует метод getQuestionInfo
+     * класса StackOverflowClient для получения информации о вопросе и установки свойств lastActivity
+     * и answerCount объекта LinkEntity. Наконец, он возвращает новый объект LinkEntity.*/
     public LinkEntity createLinkEntity(URI url) {
         Record apiRecord = stackOverflowLinkParser.parseLink(url.toString());
         if (apiRecord == null) {
-            throw new RuntimeException("Invalid link '" + url + "'");
+            throw new RuntimeException("Неккоректная ссылка '" + url + "'");
         }
         LinkEntity link = new LinkEntity();
         link.setLink(url.toString());
@@ -48,10 +59,11 @@ public class LinkRenew {
         return link;
     }
 
+    /**Аналогичен созданию сущности, но возвращает новый объект Link вместо объекта LinkEntity.*/
     public Link createLink(URI url) {
         Record apiRecord = stackOverflowLinkParser.parseLink(url.toString());
         if (apiRecord == null) {
-            throw new RuntimeException("Invalid link '" + url + "'");
+            throw new RuntimeException("Неккоректная ссылка '" + url + "'");
         }
         Link link = new Link();
         link.setLink(url);
@@ -73,14 +85,29 @@ public class LinkRenew {
         return link;
     }
 
+    /**
+     * принимает объект GitHubRecord и возвращает объект RepositoryResponse.
+     * Он использует метод getRepoInfo класса GitHubClient
+     * для получения информации о репозитории и возвращает ответ.
+     */
     public RepositoryResponse getResponse(GitHubRecord gitHubRecord) {
         return gitHubClient.getRepoInfo(gitHubRecord.username(), gitHubRecord.repo());
     }
 
+    /**
+     * принимает объект Link и возвращает объект Record.
+     * Он использует метод parseLink класса StackOverflowLinkParser для анализа ссылки и определения того,
+     * является ли она ссылкой Stack Overflow или GitHub. Наконец, он возвращает объект Record.
+     */
     public Record getRecord(Link link) {
         return stackOverflowLinkParser.parseLink(link.getLink().toString());
     }
 
+    /**
+     * Принимает объект StackOverflowRecord и возвращает объект QuestionResponse.
+     * Он использует метод getQuestionInfo класса StackOverflowClient для получения
+     * информации о вопросе и возвращает ответ
+     */
     public QuestionResponse getResponse(StackOverflowRecord stackOverflowRecord) {
         return stackOverflowClient.getQuestionInfo(stackOverflowRecord.questionId());
     }

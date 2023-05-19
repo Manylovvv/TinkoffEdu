@@ -24,15 +24,31 @@ import ru.tinkoff.edu.java.scrapper.service.interfaces.LinkService;
 import ru.tinkoff.edu.java.scrapper.service.refactor.Refactor;
 import ru.tinkoff.edu.java.scrapper.service.renew.LinkRenew;
 
+/**аннотация из библиотеки Lombok, которая генерирует конструктор со всеми аргументами*/
 @AllArgsConstructor
 public class JpaLinkService implements LinkService {
     private final ApplicationConfig config;
+    /**
+     * объект интерфейса LinkEntityRepository, который предоставляет методы
+     * для взаимодействия с объектами ссылок в базе данных.
+     */
     private final LinkEntityRepository linkEntityRepository;
+    /**
+     * объект класса LinkRenew, предоставляющий методы для
+     * создания и извлечения ссылочных объектов и ссылок.
+     */
     private final LinkRenew linkRenew;
     private final Refactor refactor;
     private final TgChatEntityRepository tgChatEntityRepository;
     private final ChatLinkEntityRepository chatLinkEntityRepository;
 
+    /**
+     * чтобы гарантировать их выполнение в рамках транзакции
+     * этот метод принимает объект Link в качестве входных данных и возвращает список объектов
+     * TgChat, связанных со ссылкой. Он делает это, запрашивая в chatLinkEntityRepository объекты
+     * ChatLinkEntity, которые имеют тот же идентификатор, что и входная ссылка,
+     * а затем использует объект рефакторинга для преобразования полученных объектов TgChatEntity в объекты TgChat
+     */
     @Transactional
     @Override
     public List<TgChat> getChatsForLink(Link link) {
@@ -40,6 +56,17 @@ public class JpaLinkService implements LinkService {
             .toList();
     }
 
+    /**
+     * этот метод принимает в качестве входных данных объект Long, представляющий
+     * идентификатор чата Telegram, и объект URI, представляющий URL-адрес ссылки, и удаляет
+     * связь между чатом и ссылкой из базы данных. Он делает это, запрашивая tgChatEntityRepository
+     * для объекта TgChatEntity с тем же идентификатором,
+     * что и входной идентификатор чата, и запрашивая linkEntityRepository для объекта LinkEntity
+     * с тем же URL-адресом, что и URL-адрес входной ссылки. Затем он удаляет соответствующий объект
+     * ChatLinkEntity из chatLinkEntityRepository, и если для ссылки больше нет ассоциаций чат-ссылки,
+     * он удаляет ссылку из linkEntityRepository. Наконец, он использует
+     * объект рефакторинга для преобразования полученного объекта LinkEntity в объект LinkResponse
+     */
     @Transactional
     @Override
     public LinkResponse remove(Long tgChatId, URI url) {
@@ -58,6 +85,17 @@ public class JpaLinkService implements LinkService {
         }
     }
 
+    /**
+     * этот метод принимает в качестве входных данных объект Long,
+     * представляющий идентификатор чата Telegram, и объект URI, представляющий URL-адрес ссылки,
+     * и добавляет связь между чатом и ссылкой в базу данных. Он делает это, запрашивая tgChatEntityRepository
+     * для объекта TgChatEntity с тем же идентификатором, что и входной идентификатор чата,
+     * и запрашивая linkEntityRepository для объекта LinkEntity с тем же URL-адресом, что и URL-адрес входной
+     * ссылки. Если ссылка не существует в базе данных,он создает новый объект LinkEntity, используя объект linkRenew,
+     * и сохраняет его в linkEntityRepository.Затем он создает новый объект ChatLinkEntity с извлеченными объектами
+     * чата и ссылок и сохраняет его в chatLinkEntityRepository. Наконец, он использует объект рефакторинга
+     * для преобразования полученного объекта LinkEntity в объект LinkResponse.
+     */
     @Transactional
     @Override
     public LinkResponse add(Long tgChatId, URI url) {
@@ -79,6 +117,12 @@ public class JpaLinkService implements LinkService {
         }
     }
 
+    /**
+     * этот метод принимает в качестве входных данных объект Long, представляющий идентификатор чата Telegram,
+     * и возвращает список объектов Link, связанных с чатом. Он делает это, запрашивая в chatLinkEntityRepository
+     * объекты ChatLinkEntity, которые имеют тот же идентификатор чата, что и входные данные, а затем использует
+     * объект рефакторинга для преобразования полученных объектов LinkEntity в объекты Link.
+     */
     @Transactional
     @Override
     public ListLinksResponse listAll(Long tgChatId) {
@@ -88,6 +132,12 @@ public class JpaLinkService implements LinkService {
         return refactor.linkEntitiesToListLinksResponse(chatLinkEntityRepository.getLinksByTgChatId(tgChatId));
     }
 
+    /**
+     * этот метод возвращает список объектов Link, которые необходимо обновить. Он делает это,
+     * запрашивая linkEntityRepository для всех объектов LinkEntity, фильтруя их на основе условия,
+     * которое проверяет, находится ли их поле lastUpdate до определенного временного интервала,
+     * а затем использует объект рефакторинга для сопоставления.
+     */
     @Transactional
     @Override
     public List<Link> findLinksForUpdate() {
@@ -105,6 +155,12 @@ public class JpaLinkService implements LinkService {
         }).toList();
     }
 
+    /**
+     * этот метод принимает объект Link в качестве входных данных и обновляет соответствующий объект ссылки
+     * в базе данных новыми данными. Это делается путем запроса в linkEntityRepository объекта LinkEntity
+     * с тем же идентификатором, что и у входного идентификатора ссылки, а затем обновления его полей данными
+     * из входного объекта Link. Наконец, он сохраняет обновленный объект ссылки в linkEntityRepository
+     */
     @Transactional
     @Override
     public void updateLink(Link link) {

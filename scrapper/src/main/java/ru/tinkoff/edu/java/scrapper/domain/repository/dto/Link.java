@@ -9,7 +9,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
+/**Генерирует параметризованный конструктор, который принимает
+ *  один параметр для каждого поля и инициализирует их с его помощью
+ */
 @AllArgsConstructor
+/**
+ * используется для создания конструктора без аргументов
+ */
 @NoArgsConstructor
 public class Link {
     private Long id;

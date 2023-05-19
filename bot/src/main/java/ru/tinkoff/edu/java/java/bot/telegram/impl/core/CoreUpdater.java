@@ -9,6 +9,11 @@ import ru.tinkoff.edu.java.java.bot.telegram.command.impl.TrackCommand;
 import ru.tinkoff.edu.java.java.bot.telegram.command.impl.UntrackCommand;
 import ru.tinkoff.edu.java.java.bot.telegram.command.interfaces.Command;
 
+/**
+ * @Param List<? extends Command> commands список универсального команд
+ * @Param List<Long> untrackRequest = new ArrayList<>(); список для отмены отслеживания
+ * @Param List<Long> trackRequest = new ArrayList<>(); список для запроса отслеживания
+ */
 public class CoreUpdater {
     private final List<? extends Command> commands;
     private final List<Long> untrackRequest = new ArrayList<>();
@@ -18,6 +23,16 @@ public class CoreUpdater {
         this.commands = Arrays.stream(commands).toList();
     }
 
+    /**
+     * Метод processCommand принимает объект Update и обрабатывает содержащуюся в нем команду.
+     * Если команда начинается с «/», она удаляет идентификатор чата из списков trackRequest и
+     * untrackRequest, извлекает строку команды и находит соответствующий объект Command в списке
+     * команд. Если объект Command является TrackCommand или UntrackCommand, он добавляет
+     * идентификатор чата в соответствующий список. Наконец, он вызывает метод процесса объекта
+     * Command и возвращает результат в виде объекта SendMessage. Если команда не распознана,
+     * она возвращает сообщение об ошибке по умолчанию.
+     * @param update
+     */
     public SendMessage processCommand(Update update) {
         if (update.message().text().startsWith("/")) {
             trackRequest.remove(update.message().chat().id());

@@ -2,6 +2,7 @@
 *.class
 /.idea/
 target
+rabbitmq_data
 pgdata
 # Log file
 *.log
